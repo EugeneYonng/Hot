@@ -7,7 +7,10 @@ import android.os.Bundle;
  * Created by Yip on 2015/8/3.
  */
 public class MethodActivity extends Activity {
-
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
