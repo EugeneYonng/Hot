@@ -18,7 +18,7 @@ import me.relex.circleindicator.CircleIndicator;
 
 public class StartActivity extends Activity {
     private  ViewPager start_pager;
-    private float X_position = 0;
+    private float xPosition = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,10 +68,10 @@ public class StartActivity extends Activity {
                 if(start_pager.getCurrentItem() == 2) {
                     switch(event.getAction()) {
                         case MotionEvent.ACTION_DOWN:
-                            X_position = event.getX();
+                            xPosition = event.getX();
                             break;
                         case MotionEvent.ACTION_UP:
-                            if(event.getX() < X_position) {
+                            if(event.getX() < xPosition) {
                                 Intent intent = new Intent(MainActivity.ACTION_MAINACTIVITY);
                                 StartActivity.this.startActivity(intent);
                                 finish();
