@@ -3,36 +3,29 @@ package com.hotdoor.products.main;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
-
-import com.gc.materialdesign.views.ButtonFlat;
-import com.hotdoor.products.main.R;
 
 import me.relex.circleindicator.CircleIndicator;
 
 public class StartActivity extends Activity {
+    private  ViewPager startPager;
+    private float xPosition = 0;
 
-    private  ViewPager start_pager;
-    private int pager_index=0;
-    private float X_position=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_layout);
-        start_pager=(ViewPager)this.findViewById(R.id.start_pager);
-        start_pager.setAdapter(new PagerAdapter() {
+        startPager = (ViewPager)this.findViewById(R.id.start_pager);
+        startPager.setAdapter(new PagerAdapter() {
 
             @Override
             public int getCount() {
@@ -51,8 +44,6 @@ public class StartActivity extends Activity {
 
             @Override
             public Object instantiateItem(ViewGroup container, final int position) {
-                pager_index = position;
-                Log.d("instantiateItem", "pager_index:"+pager_index);
                 TextView text = new TextView(StartActivity.this);
                 text.setGravity(Gravity.CENTER);
                 text.setTextSize(30);
@@ -71,18 +62,17 @@ public class StartActivity extends Activity {
 
         });
 
-        start_pager.setOnTouchListener(new View.OnTouchListener() {
+        startPager.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if(start_pager.getCurrentItem()==2){
-                    switch(event.getAction()){
+                if(startPager.getCurrentItem() == 2) {
+                    switch(event.getAction()) {
                         case MotionEvent.ACTION_DOWN:
-                            Log.d("ACTION_DOWN","succee");
-                            X_position=event.getX();
+                            xPosition = event.getX();
                             break;
                         case MotionEvent.ACTION_UP:
-                            if(event.getX()<X_position){
-                                Intent intent=new Intent(MainActivity.ACTION_MAINACTIVITY);
+                            if(event.getX() < xPosition) {
+                                Intent intent = new Intent(MainActivity.ACTION_MAINACTIVITY);
                                 StartActivity.this.startActivity(intent);
                                 finish();
                             }
@@ -93,8 +83,8 @@ public class StartActivity extends Activity {
             }
         });
 
-        CircleIndicator start_indicator=(CircleIndicator)findViewById(R.id.start_indicator);
-        start_indicator.setViewPager(start_pager);
+        CircleIndicator startIndicator=(CircleIndicator)findViewById(R.id.start_indicator);
+        startIndicator.setViewPager(startPager);
     }
 
     @Override
@@ -114,7 +104,6 @@ public class StartActivity extends Activity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
-
         }
 
         return super.onOptionsItemSelected(item);
