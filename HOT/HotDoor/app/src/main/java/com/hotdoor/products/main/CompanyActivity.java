@@ -7,10 +7,7 @@ import android.os.Bundle;
  * Created by Yip on 2015/8/3.
  */
 public class CompanyActivity extends Activity {
-    /**
-     * delete
-     * @param savedInstanceState
-     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
