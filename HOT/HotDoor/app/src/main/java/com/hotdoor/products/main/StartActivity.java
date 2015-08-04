@@ -17,15 +17,15 @@ import android.widget.TextView;
 import me.relex.circleindicator.CircleIndicator;
 
 public class StartActivity extends Activity {
-    private  ViewPager start_pager;
+    private  ViewPager startPager;
     private float xPosition = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_layout);
-        start_pager=(ViewPager)this.findViewById(R.id.start_pager);
-        start_pager.setAdapter(new PagerAdapter() {
+        startPager = (ViewPager)this.findViewById(R.id.start_pager);
+        startPager.setAdapter(new PagerAdapter() {
 
             @Override
             public int getCount() {
@@ -62,10 +62,10 @@ public class StartActivity extends Activity {
 
         });
 
-        start_pager.setOnTouchListener(new View.OnTouchListener() {
+        startPager.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if(start_pager.getCurrentItem() == 2) {
+                if(startPager.getCurrentItem() == 2) {
                     switch(event.getAction()) {
                         case MotionEvent.ACTION_DOWN:
                             xPosition = event.getX();
@@ -83,8 +83,8 @@ public class StartActivity extends Activity {
             }
         });
 
-        CircleIndicator start_indicator=(CircleIndicator)findViewById(R.id.start_indicator);
-        start_indicator.setViewPager(start_pager);
+        CircleIndicator startIndicator=(CircleIndicator)findViewById(R.id.start_indicator);
+        startIndicator.setViewPager(startPager);
     }
 
     @Override
