@@ -2,18 +2,28 @@ package com.hotdoor.products.main;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import me.relex.circleindicator.CircleIndicator;
 
 
 public class MainActivity extends Activity implements View.OnClickListener {
+    public static final String ACTION_MAINACTIVITY="com.hotdoor.products.main.MainActivity";
     public static final String ACTION_COMPANY = "com.hotdoor.products.main.CompanyActivity";
     public static final String ACTION_PRODUCT = "com.hotdoor.products.main.ProductActivity";
     public static final String ACTION_METHOD = "com.hotdoor.products.main.MethodActivity";
     public static final String ACTION_PERSONAL = "com.hotdoor.products.main.PersonalActivity";
     public static final String ACTION_SERVICE = "com.hotdoor.products.main.ServiceActivity";
 
+    private ViewPager start_pager;
     RelativeLayout rlCompany;
     RelativeLayout rlProduct;
     RelativeLayout rlMethod;
