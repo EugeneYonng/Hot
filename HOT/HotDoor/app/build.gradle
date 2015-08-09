@@ -24,4 +24,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.2.1'
     compile 'me.relex:circleindicator:1.1.5@aar'
     compile 'com.github.navasmdc:MaterialDesign:1.5@aar'
+    compile 'com.github.traex.rippleeffect:library:1.3'
 }
