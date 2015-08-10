@@ -38,7 +38,7 @@ public class MethodActivity extends Activity {
 
     private void init() {
         methodLeft = (ImageView) findViewById(R.id.iv_method_left);
-        methodIcon = (ImageView) findViewById(R.id.iv_method_left_icon);
+        methodIcon = (ImageView) findViewById(R.id.iv_method_icon_left);
         methodTitle = (MyTextView) findViewById(R.id.tv_method_title);
         mSmartCampus = (RelativeLayout) findViewById(R.id.rl_smart_campus);
         mSmartCmp = (RelativeLayout) findViewById(R.id.rl_smart_company);
@@ -60,7 +60,7 @@ public class MethodActivity extends Activity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.iv_method_left:
-                case R.id.iv_method_left_icon:
+                case R.id.iv_method_icon_left:
                 case R.id.tv_method_title:
                     Intent intent = new Intent(MainActivity.ACTION_MAINACTIVITY);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

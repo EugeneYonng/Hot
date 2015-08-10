@@ -19,7 +19,7 @@
            android:layout_height="40dp"
            android:layout_gravity="center"
            android:src="@drawable/testimage"
-           android:id="@+id/iv_method_left_icon"/>
+           android:id="@+id/iv_method_icon_left"/>
         <com.hotdoor.textview.MyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
