@@ -8,178 +8,201 @@
        android:layout_width="match_parent"
        android:layout_height="50dp"
        android:background="#0080FF">
-       <ImageView
-           android:id="@+id/iv_main"
-           android:layout_width="50dp"
-           android:layout_height="match_parent"
-           android:layout_toLeftOf="@+id/text_main"
-           android:layout_centerVertical="true"
-           android:src="@drawable/testimage" />
-       <com.hotdoor.textview.MyTextView
-           android:id="@+id/text_main"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"
-           android:layout_centerVertical="true"
-           android:layout_alignParentRight="true"
-           android:paddingRight="118dp"
-           android:textSize="26dp"
-           android:text="国芯云"
-           android:textColor="@android:color/white" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_centerInParent="true">
+            <ImageView
+                android:id="@+id/iv_main"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/testimage" />
+            <com.hotdoor.textview.MyTextView
+                android:id="@+id/text_main"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="26dp"
+                android:text="国芯云"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
     </RelativeLayout>
 
     <RelativeLayout
        android:layout_width="match_parent"
-       android:layout_height="270dp">
+       android:layout_height="250dp">
         <android.support.v4.view.ViewPager
             android:id="@+id/vp_main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-
+        <me.relex.circleindicator.CircleIndicator
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:id="@+id/ci_main"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="40dp">
+        </me.relex.circleindicator.CircleIndicator>
     </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="2" >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            android:weightSum="3" >
-            <RelativeLayout
-                android:id="@+id/rl_main_company"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1" >
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/testimage" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:textSize="16dp"
-                    android:text="公司简介" />
-            </RelativeLayout>
-
-            <ImageView
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="#0080FF" />
-
-            <RelativeLayout
-                android:id="@+id/rl_main_product"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1" >
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/testimage" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:textSize="16dp"
-                    android:text="产品中心" />
-            </RelativeLayout>
-
-            <ImageView
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="#0080FF" />
-
-            <RelativeLayout
-                android:id="@+id/rl_main_method"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1" >
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/testimage" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:textSize="16dp"
-                    android:text="解决方案" />
-            </RelativeLayout>
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#0080FF" />
+        android:layout_height="match_parent">
 
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            android:weightSum="3" >
-            <RelativeLayout
-                android:id="@+id/rl_main_personal"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true">
+
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1" >
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/testimage" />
-                <TextView
-                    android:layout_width="wrap_content"
+                android:layout_height="120dp"
+                android:weightSum="3">
+                <com.andexert.library.RippleView
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:textSize="16dp"
-                    android:text="个人中心" />
-            </RelativeLayout>
-
-            <ImageView
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="#0080FF" />
-
-            <RelativeLayout
-                android:id="@+id/rl_main_service"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/testimage" />
-                <TextView
                     android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/rv_company">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="?android:attr/listDivider"
+                        android:layout_margin="1dp">
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:id="@+id/iv_company"
+                            android:src="@drawable/testimage"
+                            android:layout_marginTop="10dp"
+                            android:layout_centerHorizontal="true" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/iv_company"
+                            android:text="公司简介"
+                            android:layout_centerHorizontal="true" />
+                    </RelativeLayout>
+                </com.andexert.library.RippleView>
+                <com.andexert.library.RippleView
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
-                    android:textSize="16dp"
-                    android:text="公司服务" />
-            </RelativeLayout>
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/rv_product">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="?android:attr/listDivider"
+                        android:layout_margin="1dp">
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:id="@+id/productImage"
+                            android:src="@drawable/testimage"
+                            android:layout_marginTop="10dp"
+                            android:layout_centerHorizontal="true" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/productImage"
+                            android:text="产品中心"
+                            android:layout_centerHorizontal="true" />
+                    </RelativeLayout>
+                </com.andexert.library.RippleView>
+                <com.andexert.library.RippleView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/rv_method">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="?android:attr/listDivider"
+                        android:layout_margin="1dp">
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:id="@+id/methodImage"
+                            android:src="@drawable/testimage"
+                            android:layout_marginTop="10dp"
+                            android:layout_centerHorizontal="true" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/methodImage"
+                            android:text="解决方案"
+                            android:layout_centerHorizontal="true" />
+                    </RelativeLayout>
+                </com.andexert.library.RippleView>
+            </LinearLayout>
 
-            <ImageView
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="#0080FF" />
-
-            <RelativeLayout
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1" >
-            </RelativeLayout>
+                android:layout_height="120dp"
+                android:weightSum="3">
+                <com.andexert.library.RippleView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/rv_person"
+                    >
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="?android:attr/listDivider"
+                        android:layout_margin="1dp">
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:id="@+id/personImage"
+                            android:src="@drawable/testimage"
+                            android:layout_marginTop="10dp"
+                            android:layout_centerHorizontal="true" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/personImage"
+                            android:text="个人中心"
+                            android:layout_centerHorizontal="true" />
+                    </RelativeLayout>
+                </com.andexert.library.RippleView>
+
+                <com.andexert.library.RippleView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_weight="1"
+                    android:id="@+id/rv_server">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="?android:attr/listDivider"
+                        android:layout_margin="1dp">
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:id="@+id/serverImage"
+                            android:src="@drawable/testimage"
+                            android:layout_marginTop="10dp"
+                            android:layout_centerHorizontal="true" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/serverImage"
+                            android:text="公司服务"
+                            android:layout_centerHorizontal="true" />
+                    </RelativeLayout>
+                </com.andexert.library.RippleView>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                </RelativeLayout>
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </RelativeLayout>
+
 </LinearLayout>
