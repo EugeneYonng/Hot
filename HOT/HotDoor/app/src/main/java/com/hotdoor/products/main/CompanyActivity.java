@@ -1,6 +1,7 @@
 package com.hotdoor.products.main;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,6 +21,7 @@ public class CompanyActivity extends Activity implements View.OnClickListener {
             R.drawable.testimage, R.drawable.testimage};
 
     ImageView mCmpLeftImg;
+    ImageView mCmpLeftIcon;
     ListView listCompany;
     ArrayList<CmpListItem> mCmpList = new ArrayList<>();
     CmpAdapter mAdapter;
@@ -34,7 +36,8 @@ public class CompanyActivity extends Activity implements View.OnClickListener {
 
     private void init() {
         /** Initialize widgets */
-        mCmpLeftImg = (ImageView) findViewById(R.id.ic_company_left);
+        mCmpLeftImg = (ImageView) findViewById(R.id.iv_company_left);
+        mCmpLeftIcon = (ImageView) findViewById(R.id.iv_company_icon_left);
         listCompany = (ListView) findViewById(R.id.list_campany);
 
         mAdapter = new CmpAdapter(this, mCmpList);
@@ -54,7 +57,10 @@ public class CompanyActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.ic_company_left) {
+        if (v.getId() == R.id.iv_company_left || v.getId() == R.id.iv_company_icon_left) {
+            Intent intent = new Intent(MainActivity.ACTION_MAINACTIVITY);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            this.startActivity(intent);
             this.finish();
         }
     }
