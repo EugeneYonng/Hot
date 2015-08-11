@@ -41,7 +41,7 @@ public class PersonalActivity extends Activity implements View.OnClickListener {
         FragmentManager fm = getFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
         loginFragment = new LoginFragment();
-        transaction.add(R.id.fl_personal_main, loginFragment);
+        transaction.add(R.id.fl_personal_main, loginFragment, "loginFragment");
         transaction.commit();
     }
 
