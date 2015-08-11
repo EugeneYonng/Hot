@@ -3,7 +3,6 @@ package com.hotdoor.products.personal;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,29 +47,23 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
         mBtnLogin.setOnClickListener(this);
         mBtnRegister.setOnClickListener(this);
 
-        Log.i("login", "" + getFragmentManager().findFragmentByTag("loginFragment"));
-        Log.i("personal", "" + getFragmentManager().findFragmentByTag("personalFragment"));
-        Log.i("collect", "" + getFragmentManager().findFragmentByTag("collectFragment"));
     }
 
 
     @Override
     public void onClick(View v) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_left);
         personalFragment = new PersonalFragment();
         protocolFragment = new ProtocolFragment();
 
         switch (v.getId()) {
             case R.id.btn_personal_login:
-                transaction.remove(this);
-//                transaction.replace(R.id.fl_personal_main, personalFragment, "personalFragment");
-                transaction.add(R.id.fl_personal_main, personalFragment, "personalFragment");
-                transaction.addToBackStack(null);
+                transaction.replace(R.id.fl_personal_main, personalFragment, "personalFragment");
                 transaction.commit();
                 break;
             case R.id.btn_personal_register:
                 transaction.replace(R.id.fl_personal_main, protocolFragment, "protocolFragment");
-                transaction.addToBackStack(null);
                 transaction.commit();
                 break;
             default:
