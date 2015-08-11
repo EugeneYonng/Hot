@@ -2,7 +2,6 @@ package com.hotdoor.products.main;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -28,8 +27,8 @@ public class ServiceActivity extends Activity {
     private void init() {
         serviceLeft = (ImageView) findViewById(R.id.iv_service_left);
         serviceLeftIcon = (ImageView) findViewById(R.id.iv_product_left_icon);
-        servicePolicy = (LinearLayout) findViewById(R.id.ll_server_policy);
-        serviceSell = (LinearLayout) findViewById(R.id.ll_server_sell);
+        servicePolicy = (LinearLayout) findViewById(R.id.ll_service_policy);
+        serviceSell = (LinearLayout) findViewById(R.id.ll_service_sell);
         faultDiagnosis = (LinearLayout) findViewById(R.id.ll_fault_diagnosis);
         onlineSupport = (LinearLayout) findViewById(R.id.ll_online_support);
 
