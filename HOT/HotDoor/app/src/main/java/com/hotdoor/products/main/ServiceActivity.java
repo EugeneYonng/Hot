@@ -1,7 +1,9 @@
 package com.hotdoor.products.main;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -35,8 +37,18 @@ public class ServiceActivity extends Activity {
 
     }
 
-//    private class myClickListener implements View.OnClickListener {
-//        @Override
-//        public
-//    }
+    private class myClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.iv_service_left:
+                case R.id.iv_product_left_icon:
+                    Intent intent = new Intent(MainActivity.ACTION_MAINACTIVITY);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    ServiceActivity.this.startActivity(intent);
+                    finish();
+                    break;
+            }
+        }
+    }
 }

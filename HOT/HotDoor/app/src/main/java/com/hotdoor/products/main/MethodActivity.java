@@ -42,6 +42,7 @@ public class MethodActivity extends Activity {
         methodTitle = (MyTextView) findViewById(R.id.tv_method_title);
         mSmartCampus = (RelativeLayout) findViewById(R.id.rl_smart_campus);
         mSmartCmp = (RelativeLayout) findViewById(R.id.rl_smart_company);
+
         mSecurityInfo = (RegularHexagonView) findViewById(R.id.rhv_security_informatization);
         mRuralInfo = (RegularHexagonView) findViewById(R.id.rhv_rural_informatization);
         mMoveWork = (RegularHexagonView) findViewById(R.id.rhv_move_working);
@@ -53,6 +54,14 @@ public class MethodActivity extends Activity {
         methodLeft.setOnClickListener(new myListener());
         methodTitle.setOnClickListener(new myListener());
         methodIcon.setOnClickListener(new myListener());
+
+        mSecurityInfo.setOnClickListener(new myListener());
+        mRuralInfo.setOnClickListener(new myListener());
+        mMoveWork.setOnClickListener(new myListener());
+        mHotelInfo.setOnClickListener(new myListener());
+        mFinanceInfo.setOnClickListener(new myListener());
+        mLibInfo.setOnClickListener(new myListener());
+        mIndustryInfo.setOnClickListener(new myListener());
     }
 
     private class myListener implements View.OnClickListener {

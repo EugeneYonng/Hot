@@ -59,12 +59,12 @@ public class ProductActivity extends Activity {
         imagProdLeftIcon = (ImageView) findViewById(R.id.iv_product_left_icon);
         imagProductLeft = (ImageView) findViewById(R.id.iv_product_left);
 
-        rippCloudSpeed.setRippleDuration(200);
-        rippCloudServer.setRippleDuration(200);
-        rippCloudSafe.setRippleDuration(200);
-        rippCloudManager.setRippleDuration(200);
-        rippCloudComputer.setRippleDuration(200);
-        rippCloudSave.setRippleDuration(200);
+        rippCloudSpeed.setRippleDuration(100);
+        rippCloudServer.setRippleDuration(100);
+        rippCloudSafe.setRippleDuration(100);
+        rippCloudManager.setRippleDuration(100);
+        rippCloudComputer.setRippleDuration(100);
+        rippCloudSave.setRippleDuration(100);
 
         rippCloudComputer.setOnRippleCompleteListener(new myRippListener());
         rippCloudManager.setOnRippleCompleteListener(new myRippListener());

@@ -3,17 +3,21 @@ package com.hotdoor.products.main;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.andexert.library.RippleView;
+import com.romainpiel.shimmer.Shimmer;
+import com.romainpiel.shimmer.ShimmerTextView;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -35,6 +39,8 @@ public class MainActivity extends Activity {
     private RippleView rippMethod;
     private RippleView rippPersonal;
     private RippleView rippServer;
+    private RippleView rippConnect;
+   private ShimmerTextView stvTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +86,7 @@ public class MainActivity extends Activity {
 
         CircleIndicator indicator = (CircleIndicator)findViewById(R.id.ci_main);
         indicator.setViewPager(pagerMain);
+
         rippCompany.setOnRippleCompleteListener(new myListener());
         rippProduct.setOnRippleCompleteListener(new myListener());
         rippMethod.setOnRippleCompleteListener(new myListener());
@@ -96,6 +103,22 @@ public class MainActivity extends Activity {
         rippMethod = (RippleView) findViewById(R.id.rv_method);
         rippPersonal = (RippleView) findViewById(R.id.rv_person);
         rippServer = (RippleView) findViewById(R.id.rv_server);
+        rippConnect = (RippleView) findViewById(R.id.rv_connect);
+        stvTitle = (ShimmerTextView) findViewById(R.id.text_main);
+
+        rippCompany.setRippleDuration(100);
+        rippMethod.setRippleDuration(100);
+        rippPersonal.setRippleDuration(100);
+        rippProduct.setRippleDuration(100);
+        rippServer.setRippleDuration(100);
+        rippConnect.setRippleDuration(100);
+
+        stvTitle.setReflectionColor(0xffffa23c);
+        stvTitle.setTypeface(Typeface.createFromAsset(this.getAssets(), "fonts/youyuan.ttf"));
+        new Shimmer().setDuration(2000)
+                .setStartDelay(2000)
+                .setDirection(Shimmer.ANIMATION_DIRECTION_LTR)
+                .start(stvTitle);
     }
 
     private class myTimeTask extends TimerTask {
@@ -135,6 +158,9 @@ public class MainActivity extends Activity {
                     break;
                 case R.id.rv_server:
                     startIntent(ACTION_SERVICE);
+                    break;
+                case R.id.rv_connect:
+                    Log.d("RippleListener", "connect us");
                     break;
             }
         }
