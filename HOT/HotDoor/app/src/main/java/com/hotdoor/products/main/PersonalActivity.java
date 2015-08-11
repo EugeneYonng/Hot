@@ -48,6 +48,14 @@ public class PersonalActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.iv_personal_left || v.getId() == R.id.iv_personal_icon_left) {
+            popBackFragment();
+        }
+    }
+
+    private void popBackFragment() {
+        if (getFragmentManager().findFragmentByTag("collectFragment") != null) {
+            getFragmentManager().popBackStack();
+        } else {
             Intent intent = new Intent(MainActivity.ACTION_MAINACTIVITY);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             this.startActivity(intent);

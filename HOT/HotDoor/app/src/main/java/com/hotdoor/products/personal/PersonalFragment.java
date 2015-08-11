@@ -3,7 +3,6 @@ package com.hotdoor.products.personal;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,14 +38,13 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
         mBtnCollect.setOnClickListener(this);
         mBtnSell.setOnClickListener(this);
 
-        Log.i("login", "" + getFragmentManager().findFragmentByTag("loginFragment"));
-        Log.i("personal", "" + getFragmentManager().findFragmentByTag("personalFragment"));
-        Log.i("collect", "" + getFragmentManager().findFragmentByTag("collectFragment"));
     }
 
     @Override
     public void onClick(View v) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_left
+                , R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_left);
         collectFragment = new CollectFragment();
         sellFragment = new SellFragment();
 
