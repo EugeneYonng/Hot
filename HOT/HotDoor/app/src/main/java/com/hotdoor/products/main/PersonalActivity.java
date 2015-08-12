@@ -1,6 +1,7 @@
 package com.hotdoor.products.main;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -60,6 +61,21 @@ public class PersonalActivity extends Activity implements View.OnClickListener {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             this.startActivity(intent);
             this.finish();
+        }
+    }
+
+    public void replaceFragment(Fragment from, Fragment to, String tag) {
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+//        transaction.setCustomAnimations(R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_left
+//                , R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_left);
+
+        if (!to.isAdded()) {
+            transaction.hide(from).add(R.id.fl_personal_main, to, tag);
+            transaction.addToBackStack(null);
+            transaction.commit();
+        } else {
+            transaction.hide(from).show(to);
+            transaction.commit();
         }
     }
 }

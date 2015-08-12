@@ -2,21 +2,19 @@ package com.hotdoor.products.personal;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
 import com.dd.CircularProgressButton;
-import com.gc.materialdesign.views.ButtonRectangle;
 import com.gc.materialdesign.views.CheckBox;
 import com.hotdoor.products.main.R;
-
-import java.util.logging.LogRecord;
+import com.hotdoor.textview.MyTextView;
 
 
 /**
@@ -31,7 +29,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
     CheckBox mCbRemember;
     CheckBox mCbAutoLogin;
     CircularProgressButton mBtnLogin;
-    ButtonRectangle mBtnRegister;
+    MyTextView mBtnRegister;
 
     FragmentTransaction transaction;
 
@@ -52,11 +50,15 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
         mCbRemember = (CheckBox) view.findViewById(R.id.cb_personal_remember);
         mCbAutoLogin = (CheckBox) view.findViewById(R.id.cb_personal_login_auto);
         mBtnLogin = (CircularProgressButton) view.findViewById(R.id.btn_personal_login);
-        mBtnRegister = (ButtonRectangle) view.findViewById(R.id.btn_personal_register);
+        mBtnRegister = (MyTextView) view.findViewById(R.id.btn_personal_register);
 
         mBtnLogin.setOnClickListener(this);
         mBtnRegister.setOnClickListener(this);
 
+        /**
+         * set mBtnLogin's font
+         */
+        mBtnLogin.setTypeface(Typeface.createFromAsset(getActivity().getAssets(), "fonts/youyuan.ttf"));
 
     }
 
@@ -88,10 +90,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
                 case LoginFragment.UPDATEPROCESS:
                     mBtnLogin.setProgress(msg.getData().getInt("process"));
                     if(msg.getData().getInt("process") == 100) {
-                        transaction.remove(LoginFragment.this);
-//                transaction.replace(R.id.fl_personal_main, personalFragment, "personalFragment");
-                        transaction.add(R.id.fl_personal_main, personalFragment, "personalFragment");
-                        transaction.addToBackStack(null);
+                        transaction.replace(R.id.fl_personal_main, personalFragment);
                         transaction.commit();
                     }
                     break;
@@ -102,7 +101,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        transaction = getFragmentManager().beginTransaction();
+        transaction = getActivity().getFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_left
+                , R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_left);
         personalFragment = new PersonalFragment();
         protocolFragment = new ProtocolFragment();
 
