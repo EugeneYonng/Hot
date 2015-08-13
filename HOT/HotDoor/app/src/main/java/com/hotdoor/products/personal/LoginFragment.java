@@ -34,7 +34,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
     FragmentTransaction transaction;
 
     PersonalFragment personalFragment;
-    ProtocolFragment protocolFragment;
+    RegisterFragment registerFragment;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -105,7 +105,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
         transaction.setCustomAnimations(R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_left
                 , R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_left);
         personalFragment = new PersonalFragment();
-        protocolFragment = new ProtocolFragment();
+        registerFragment = new RegisterFragment();
 
         switch (v.getId()) {
             case R.id.btn_personal_login:
@@ -114,7 +114,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
                 break;
             case R.id.btn_personal_register:
-                transaction.replace(R.id.fl_personal_main, protocolFragment, "protocolFragment");
+                transaction.replace(R.id.fl_personal_main, registerFragment, "protocolFragment");
                 transaction.addToBackStack(null);
                 transaction.commit();
                 break;
