@@ -1,32 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:orientation="horizontal"
         android:weightSum="2" >
-        <com.hotdoor.textview.MyTextView
+        <com.romainpiel.shimmer.ShimmerTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:id="@+id/tv_personal_collect_tab_product"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:background="#0080FF"
             android:text="产品收藏"
-            android:textSize="26dp" />
-        <com.hotdoor.textview.MyTextView
-            android:id="@+id/tv_personal_collect_tab_scheme"
+            android:textColor="#ff9478ff"
+            android:textSize="19sp"
+            android:gravity="center"
+            android:background="#f08bffc5"/>
+        <com.romainpiel.shimmer.ShimmerTextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_weight="1"
+            android:id="@+id/tv_personal_collect_tab_scheme"
             android:text="方案收藏"
-            android:textSize="26dp" />
+            android:layout_weight="1"
+            android:textSize="19sp"
+            android:gravity="center"
+            android:background="#3a020201"
+            android:textColor="#ff6f6f6f"
+            />
+
     </LinearLayout>
 
     <android.support.v4.view.ViewPager
