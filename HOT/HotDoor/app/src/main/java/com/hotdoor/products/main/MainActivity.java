@@ -33,6 +33,9 @@ public class MainActivity extends Activity {
     public static final String ACTION_PERSONAL = "com.hotdoor.products.main.PersonalActivity";
     public static final String ACTION_SERVICE = "com.hotdoor.products.main.ServiceActivity";
 
+    public static boolean isLogin = true;    //登陆状态
+    public static String account = "testaccount3" ;
+
     private ViewPager pagerMain;
     private RippleView rippCompany;
     private RippleView rippProduct;
@@ -40,7 +43,8 @@ public class MainActivity extends Activity {
     private RippleView rippPersonal;
     private RippleView rippServer;
     private RippleView rippConnect;
-   private ShimmerTextView stvTitle;
+    private ShimmerTextView stvTitle;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
