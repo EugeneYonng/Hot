@@ -1,118 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:materialdesign="http://schemas.android.com/apk/res-auto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent" >
     <com.hotdoor.textview.MyTextView
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_personal_title_welcome"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="34dp"
-        android:layout_gravity="center_horizontal"
+        android:gravity="center"
         android:text="欢迎登陆国芯云"
         android:textSize="30dp"
         android:textColor="#0080FF" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:layout_marginTop="40dp"
-        android:orientation="horizontal" >
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_gravity="center"
-            android:src="@drawable/testimage" />
-        <com.wrapp.floatlabelededittext.FloatLabeledEditText
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            >
-        <EditText
-            android:id="@+id/et_personal_account"
-            android:layout_width="224dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:paddingLeft="16dp"
-            android:singleLine="true"
-            android:hint="请输入账号"
-            android:background="@drawable/shape" />
-        </com.wrapp.floatlabelededittext.FloatLabeledEditText>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:orientation="horizontal" >
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_gravity="center"
-            android:src="@drawable/testimage" />
-        <com.wrapp.floatlabelededittext.FloatLabeledEditText
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            >
-        <EditText
-            android:id="@+id/et_personal_password"
-            android:layout_width="224dp"
-            android:layout_height="40dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:paddingLeft="16dp"
-            android:singleLine="true"
-            android:hint="请输入密码"
-            android:inputType="textPassword"
-            android:background="@drawable/shape" />
-        </com.wrapp.floatlabelededittext.FloatLabeledEditText>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/et_personal_account"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/tv_personal_title_welcome"
+        android:layout_marginLeft="94dp"
+        android:focusableInTouchMode="true"
+        android:hint="手机或邮箱"
+        android:inputType="phone"
+        app:met_typeface="fonts/youyuan.ttf"
+        app:met_accentTypeface="fonts/youyuan.ttf"
+        app:met_baseColor="#000000"
+        app:met_textColor="#ff0290ff"
+        app:met_primaryColor="#ff0290ff"
+        app:met_singleLineEllipsis="true"
+        app:met_floatingLabel="normal"
+        app:met_floatingLabelPadding="2dp"
+        app:met_floatingLabelText="账号" />
+    <ImageView
+        android:id="@+id/iv_personal_icon_account"
+        android:layout_width="40dp"
         android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="5dp" >
-        <com.gc.materialdesign.views.CheckBox
-            android:id="@+id/cb_personal_remember"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="35dp"
-            android:background="#1E88E5"
-            materialdesign:check="false" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="记住密码"
-            android:textSize="18dp" />
+        android:layout_marginLeft="40dp"
+        android:layout_alignBottom="@id/et_personal_account"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/tv_personal_title_welcome"
+        android:src="@drawable/testimage" />
 
-        <com.gc.materialdesign.views.CheckBox
-            android:id="@+id/cb_personal_login_auto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="40dp"
-            android:background="#1E88E5"
-             />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="自动登录"
-            android:textSize="18dp" />
-    </LinearLayout>
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/et_personal_password"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/et_personal_account"
+        android:layout_marginLeft="94dp"
+        android:focusableInTouchMode="true"
+        android:hint="用户密码"
+        android:password="true"
+        app:met_typeface="fonts/youyuan.ttf"
+        app:met_accentTypeface="fonts/youyuan.ttf"
+        app:met_baseColor="#000000"
+        app:met_textColor="#ff0290ff"
+        app:met_primaryColor="#ff0290ff"
+        app:met_singleLineEllipsis="true"
+        app:met_floatingLabel="normal"
+        app:met_floatingLabelPadding="2dp"
+        app:met_floatingLabelText="密码" />
+    <ImageView
+        android:id="@+id/iv_personal_icon_password"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_alignBottom="@id/et_personal_password"
+        android:layout_below="@+id/iv_personal_icon_account"
+        android:src="@drawable/testimage" />
+
+    <com.gc.materialdesign.views.CheckBox
+        android:id="@+id/cb_personal_remember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="35dp"
+        android:layout_below="@id/iv_personal_icon_password"
+        android:background="#1E88E5"
+        materialdesign:check="false" />
+    <TextView
+        android:id="@+id/tv_personal_remember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/iv_personal_icon_password"
+        android:layout_toRightOf="@id/cb_personal_remember"
+        android:text="记住密码"
+        android:textSize="18sp" />
+
+    <com.gc.materialdesign.views.CheckBox
+        android:id="@+id/cb_personal_login_auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/iv_personal_icon_password"
+        android:layout_toRightOf="@id/tv_personal_remember"
+        android:layout_marginLeft="40dp"
+        android:background="#1E88E5"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/iv_personal_icon_password"
+        android:layout_toRightOf="@id/cb_personal_login_auto"
+        android:text="自动登录"
+        android:textSize="18sp" />
 
     <com.dd.CircularProgressButton
+        android:id="@+id/btn_personal_login"
         android:textSize="18sp"
         android:layout_width="160dp"
         android:layout_height="46dp"
-        android:layout_gravity="center"
         android:gravity="center"
         android:layout_marginTop="20dp"
+        android:layout_below="@id/cb_personal_remember"
+        android:layout_centerHorizontal="true"
         android:textColor="#ffffff"
         app:cpb_textIdle="登 陆"
         app:cpb_colorIndicator="#0080FF"
@@ -121,20 +127,19 @@
         app:cpb_cornerRadius="100dp"
         app:cpb_textComplete="完 成"
         app:cpb_iconError="@drawable/ic_highlight_off_white_36dp"
-        app:cpb_textError="错 误"
-        android:id="@+id/btn_personal_login"
-        />
+        app:cpb_textError="错 误" />
 
     <com.hotdoor.textview.MyTextView
         android:id="@+id/btn_personal_register"
         android:layout_width="160dp"
         android:layout_height="46dp"
-        android:layout_marginTop="17dp"
-        android:layout_gravity="center"
+        android:layout_marginTop="22dp"
+        android:layout_below="@id/btn_personal_login"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/selector_corners_100dp"
         android:text="一键注册"
         android:textSize="18sp"
         android:textColor="#FFFFFF"
         android:gravity="center" />
 
-</LinearLayout>
+</RelativeLayout>

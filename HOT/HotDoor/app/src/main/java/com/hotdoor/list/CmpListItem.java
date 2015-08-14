@@ -4,8 +4,8 @@ package com.hotdoor.list;
  * Created by Yip on 2015/8/5.
  */
 public class CmpListItem {
-    public int imageId;
-    public String text;
+    private int imageId;
+    private String text;
 
     public int getImageId() {
         return imageId;
@@ -16,7 +16,6 @@ public class CmpListItem {
     }
 
     public void setImageId(int imageId) {
-
         this.imageId = imageId;
     }
 

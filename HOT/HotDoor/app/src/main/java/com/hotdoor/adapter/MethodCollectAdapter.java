@@ -17,12 +17,12 @@ import java.util.ArrayList;
 /**
  * Created by Administrator on 2015/8/12.
  */
-public class methCollectAdapter extends BaseAdapter{
+public class MethodCollectAdapter extends BaseAdapter{
     private Context context;
     private ArrayList<ProListItem> arrayItem;
     private LayoutInflater inflater;
 
-    public methCollectAdapter(Context context, ArrayList<ProListItem> Item) {
+    public MethodCollectAdapter(Context context, ArrayList<ProListItem> Item) {
         this.context = context;
         arrayItem = Item;
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
