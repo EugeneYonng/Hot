@@ -11,11 +11,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.hotdoor.list.ProductListString;
 import com.hotdoor.products.main.MainActivity;
 import com.hotdoor.products.main.ProductActivity;
 import com.hotdoor.products.main.R;
 import com.hotdoor.textview.MyTextView;
+import com.ms.square.android.expandabletextview.ExpandableTextView;
 import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
 
@@ -40,6 +43,7 @@ public class ProdShowFragment extends Fragment{
     private ShimmerTextView textShowFourth;
     private String productTitle;
     private int imageResource;
+    private int productID;
     private Shimmer shimmer;
     private ImageView imageShow;
     private boolean isCollect;
@@ -48,6 +52,12 @@ public class ProdShowFragment extends Fragment{
     private ArrayList<String> productCollect;
     private ArrayList<String> arrayTitle;
     private collectListener myListener;
+    private ExpandableTextView etvShowText;
+    private ExpandableTextView etvFuntionText;
+    private ExpandableTextView etvStandardText;
+    private TextView productTextTitle1;
+    private TextView productTextTitle2;
+    private TextView productTextTitle3;
 
 
 //    public ProdShowFragment(String[] title ,int imagRes) {
@@ -69,6 +79,20 @@ public class ProdShowFragment extends Fragment{
         textShowFourth = (ShimmerTextView) view.findViewById(R.id.stv_product_show_4);
         imageShow = (ImageView) view.findViewById(R.id.iv_product_show_icon);
 
+        etvShowText = (ExpandableTextView) view.findViewById(R.id.expend_text_product_show);
+        etvFuntionText = (ExpandableTextView) view.findViewById(R.id.expend_text_product_function);
+        etvStandardText = (ExpandableTextView) view.findViewById(R.id.expend_text_product_standard);
+
+        productTextTitle1 = (TextView) view.findViewById(R.id.tv_product_title_1);
+        productTextTitle2 = (TextView) view.findViewById(R.id.tv_product_title_2);
+        productTextTitle3 = (TextView) view.findViewById(R.id.tv_product_title_3);
+
+        productTextTitle1.setText("产品介绍");
+        productTextTitle2.setText("功能特点");
+        productTextTitle3.setText("技术规格");
+
+        setProductIntroduceText(productID);   //设置文字简介内容
+
         myListener = new collectListener();
         ProductActivity.imagProCollect.setVisibility(View.VISIBLE);  //显示收藏按钮s
         ProductActivity.imagProCollect.setOnClickListener(myListener);
@@ -80,6 +104,74 @@ public class ProdShowFragment extends Fragment{
 //        imageShow.setBackgroundResource(this.imageResource);
         setShimmer();
 
+    }
+
+    private void setProductIntroduceText(int id) {
+        switch (id) {
+            case ProductListString.GXY_EDU12:
+                Log.d("Product",ProductListString.PRODUCT_ID.get(ProductListString.GXY_EDU12));
+                break;
+            case ProductListString.GXY_EDU26:
+                Log.d("Product",ProductListString.PRODUCT_ID.get(ProductListString.GXY_EDU26));
+                break;
+            case ProductListString.GXY_ENT12:
+                Log.d("Product",ProductListString.PRODUCT_ID.get(ProductListString.GXY_ENT12));
+                break;
+            case ProductListString.GXY_ENT26:
+                Log.d("Product",ProductListString.PRODUCT_ID.get(ProductListString.GXY_ENT26));
+                break;
+            case ProductListString.GXY_AEDU26:
+                Log.d("Product",ProductListString.PRODUCT_ID.get(ProductListString.GXY_AEDU26));
+                break;
+            case ProductListString.STD26:
+                Log.d("Product",ProductListString.PRODUCT_ID.get(ProductListString.STD26));
+                break;
+            case ProductListString.GXY_ENH26:
+                Log.d("Product",ProductListString.PRODUCT_ID.get(ProductListString.GXY_ENH26));
+                break;
+            case ProductListString.GXY_ADV26:
+                Log.d("Product",ProductListString.PRODUCT_ID.get(ProductListString.GXY_ADV26));
+                break;
+            case ProductListString.GXY_ADV14B:
+                Log.d("Product",ProductListString.PRODUCT_ID.get(ProductListString.GXY_ADV14B));
+                break;
+            case ProductListString.GXY_EXS26:
+                Log.d("Product",ProductListString.PRODUCT_ID.get(ProductListString.GXY_EXS26));
+                break;
+            case ProductListString.GXY_ERS26:
+                Log.d("Product",ProductListString.PRODUCT_ID.get(ProductListString.GXY_ERS26));
+                break;
+            case ProductListString.GXY_DTP12:
+                Log.d("Product",ProductListString.PRODUCT_ID.get(ProductListString.GXY_DTP12));
+                break;
+            case ProductListString.GXY_DTP26:
+                Log.d("Product",ProductListString.PRODUCT_ID.get(ProductListString.GXY_DTP26));
+                break;
+            case ProductListString.GXY_OA12:
+                Log.d("Product",ProductListString.PRODUCT_ID.get(ProductListString.GXY_OA12));
+                break;
+            case ProductListString.GXY_OA26:
+                Log.d("Product",ProductListString.PRODUCT_ID.get(ProductListString.GXY_OA26));
+                break;
+            case ProductListString.GXY_C3:
+                Log.d("Product",ProductListString.PRODUCT_ID.get(ProductListString.GXY_C3));
+                break;
+            case ProductListString.GXY_37:
+                Log.d("Product", ProductListString.PRODUCT_ID.get(ProductListString.GXY_37));
+                break;
+        }
+
+        textShowFirst.setText("云化");
+        textShowSecond.setText("全面提速");
+        textShowThird.setText("利用现有资源");
+        textShowFourth.setText("打造高性价比的云化机房");
+        etvShowText.setText(getString(R.string.GXY_EDU12_show));
+        etvFuntionText.setText(getString(R.string.GXY_EDU12_funtion));
+        etvStandardText.setText(getString(R.string.GXY_EDU12_Standard));
+    }
+
+    public void setProductID(int id){
+        this.productID = id;
     }
 
     public void setProductTitle(String title) {
