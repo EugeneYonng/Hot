@@ -1,13 +1,14 @@
 package com.hotdoor.products.main;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.hotdoor.products.personal.LoginFragment;
 
@@ -17,8 +18,11 @@ import com.hotdoor.products.personal.LoginFragment;
 public class PersonalActivity extends Activity implements View.OnClickListener {
     ImageView mPersonalLeftImg;
     ImageView mPersonalLeftIcon;
+    public TextView mPersonalLeftTitle;
 
     LoginFragment loginFragment;
+
+    public static Typeface mFonts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +37,21 @@ public class PersonalActivity extends Activity implements View.OnClickListener {
     private void init() {
         mPersonalLeftImg = (ImageView) findViewById(R.id.iv_personal_left);
         mPersonalLeftIcon = (ImageView) findViewById(R.id.iv_personal_icon_left);
+        mPersonalLeftTitle = (TextView) findViewById(R.id.tv_personal_title);
 
         mPersonalLeftImg.setOnClickListener(this);
         mPersonalLeftIcon.setOnClickListener(this);
+
+        /**
+         * create font entity
+         */
+        mFonts = Typeface.createFromAsset(getAssets(), "fonts/youyuan.ttf");
+
+        setFonts();
+    }
+
+    private void setFonts() {
+        mPersonalLeftTitle.setTypeface(mFonts);
     }
 
     private void setDefaultFragment() {
@@ -56,6 +72,16 @@ public class PersonalActivity extends Activity implements View.OnClickListener {
     private void popBackFragment() {
         if (getFragmentManager().findFragmentByTag("collectFragment") != null) {
             getFragmentManager().popBackStack();
+        } else if (getFragmentManager().findFragmentByTag("registerEnterFragment") != null) {
+            /**
+             * 如果注册完成进入个人界面，那么此时退出将会退出activity
+             */
+            Intent intent = new Intent(MainActivity.ACTION_MAINACTIVITY);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            this.startActivity(intent);
+            this.finish();
+        } else if (getFragmentManager().findFragmentByTag("registerFragment") != null) {
+            getFragmentManager().popBackStack();
         } else {
             Intent intent = new Intent(MainActivity.ACTION_MAINACTIVITY);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -64,18 +90,8 @@ public class PersonalActivity extends Activity implements View.OnClickListener {
         }
     }
 
-    public void replaceFragment(Fragment from, Fragment to, String tag) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-//        transaction.setCustomAnimations(R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_left
-//                , R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_left);
-
-        if (!to.isAdded()) {
-            transaction.hide(from).add(R.id.fl_personal_main, to, tag);
-            transaction.addToBackStack(null);
-            transaction.commit();
-        } else {
-            transaction.hide(from).show(to);
-            transaction.commit();
-        }
+    @Override
+    public void onBackPressed() {
+        popBackFragment();
     }
 }

@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-    <com.hotdoor.textview.MyTextView
+    <TextView
         android:id="@+id/tv_personal_title_welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -129,7 +129,7 @@
         app:cpb_iconError="@drawable/ic_highlight_off_white_36dp"
         app:cpb_textError="错 误" />
 
-    <com.hotdoor.textview.MyTextView
+    <TextView
         android:id="@+id/btn_personal_register"
         android:layout_width="160dp"
         android:layout_height="46dp"

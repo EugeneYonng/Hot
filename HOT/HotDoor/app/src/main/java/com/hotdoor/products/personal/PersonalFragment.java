@@ -6,8 +6,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.gc.materialdesign.views.ButtonRectangle;
+import com.hotdoor.products.main.PersonalActivity;
 import com.hotdoor.products.main.R;
 
 /**
@@ -15,12 +18,16 @@ import com.hotdoor.products.main.R;
  */
 public class PersonalFragment extends Fragment implements View.OnClickListener {
 
+    ImageView mImgPersonalIcon;
+    TextView mTextPersonalName;
     ButtonRectangle mBtnQuit;
     ButtonRectangle mBtnCollect;
     ButtonRectangle mBtnSell;
 
     CollectFragment collectFragment;
     SellFragment sellFragment;
+
+    PersonalActivity mActivity;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -30,6 +37,10 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
     }
 
     private void init(View view) {
+        mActivity = (PersonalActivity) getActivity();
+
+        mImgPersonalIcon = (ImageView) view.findViewById(R.id.iv_personal_personal_portrait_icon);
+        mTextPersonalName = (TextView) view.findViewById(R.id.tv_personal_personal_name);
         mBtnQuit = (ButtonRectangle) view.findViewById(R.id.btn_personal_personal_quit);
         mBtnCollect = (ButtonRectangle) view.findViewById(R.id.btn_personal_personal_collect);
         mBtnSell = (ButtonRectangle) view.findViewById(R.id.btn_personal_personal_sell);
@@ -37,6 +48,18 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
         mBtnQuit.setOnClickListener(this);
         mBtnCollect.setOnClickListener(this);
         mBtnSell.setOnClickListener(this);
+
+        mActivity.mPersonalLeftTitle.setText("个人中心");
+
+        /**
+         * set Fonts
+         */
+        setFonts();
+
+    }
+
+    private void setFonts() {
+        mTextPersonalName.setTypeface(mActivity.mFonts);
 
     }
 
@@ -50,12 +73,12 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
 
         switch (v.getId()) {
             case R.id.btn_personal_personal_collect:
-                transaction.replace(R.id.fl_personal_main, collectFragment, "collectFragment");
+                transaction.hide(this).add(R.id.fl_personal_main, collectFragment, "collectFragment");
                 transaction.addToBackStack(null);
                 transaction.commit();
                 break;
             case R.id.btn_personal_personal_sell:
-                transaction.replace(R.id.fl_personal_main, sellFragment, "sellFragment");
+                transaction.hide(this).add(R.id.fl_personal_main, sellFragment, "sellFragment");
                 transaction.addToBackStack(null);
                 transaction.commit();
                 break;
