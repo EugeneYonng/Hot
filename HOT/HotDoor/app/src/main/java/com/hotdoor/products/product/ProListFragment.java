@@ -104,26 +104,26 @@ public class ProListFragment extends Fragment {
 
                 textProTitle.setText(mItemString[position][1]);
                 ProductActivity.titleBuffer[2] = mItemString[position][1];  //设置show的标题
-                ProdShowFragment showFragment = null;
+                ProdShowFragment showFragment = new ProdShowFragment();
                 switch (position) {
                     case 0:
-                        showFragment = new ProdShowFragment();   //要传入需要显示的数组和图片。
+                           //要传入需要显示的数组和图片。
 
                         break;
                     case 1:
-                        showFragment = new ProdShowFragment();
+
 
                         break;
                     case 2:
-                        showFragment = new ProdShowFragment();
+
 
                         break;
                     case 3:
-                        showFragment = new ProdShowFragment();
+
 
                         break;
                     case 4:
-                        showFragment = new ProdShowFragment();
+
                         break;
                 }
                 showFragment.setProductID(ProductListString.PRODUCT_ID.indexOf(mItemString[position][1]));
