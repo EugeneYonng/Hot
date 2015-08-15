@@ -3,41 +3,29 @@ package com.hotdoor.products.personal;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.SharedPreferences;
-import android.content.pm.ApplicationInfo;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import com.baoyz.swipemenulistview.SwipeMenu;
-import com.baoyz.swipemenulistview.SwipeMenuCreator;
-import com.baoyz.swipemenulistview.SwipeMenuItem;
-import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.gc.materialdesign.views.ButtonFlat;
 import com.gc.materialdesign.widgets.Dialog;
-import com.hotdoor.adapter.ProCollectAdapter;
 import com.hotdoor.adapter.ProdAdapter;
 import com.hotdoor.list.ProListItem;
 import com.hotdoor.products.main.MainActivity;
+import com.hotdoor.products.main.PersonalActivity;
 import com.hotdoor.products.main.R;
-import com.hotdoor.textview.MyTextView;
 import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Yip on 2015/8/10.
@@ -62,6 +50,8 @@ public class CollectFragment extends Fragment implements View.OnClickListener {
     private ArrayList<String> arrayTitle;
     private ArrayList<String> arrayModle;
 
+    PersonalActivity mActivity;
+
     @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.personal_fragment_collect, container, false);
@@ -84,6 +74,8 @@ public class CollectFragment extends Fragment implements View.OnClickListener {
 //    }
 
     private void init(View view) {
+        mActivity = (PersonalActivity) getActivity();
+
         mViewPagerCollect = (ViewPager) view.findViewById(R.id.vp_personal_collect);
         mTextProduct = (ShimmerTextView) view.findViewById(R.id.tv_personal_collect_tab_product);
         mTextScheme = (ShimmerTextView) view.findViewById(R.id.tv_personal_collect_tab_scheme);
@@ -93,6 +85,8 @@ public class CollectFragment extends Fragment implements View.OnClickListener {
 
         mTextProduct.setReflectionColor(0xfffeef6b);
         mTextScheme.setReflectionColor(0xfffeef6b);
+
+        mActivity.mPersonalLeftTitle.setText("我的收藏");
 
         shimmer = new Shimmer();
         shimmer.setDuration(3000).start(mTextProduct);
@@ -132,6 +126,18 @@ public class CollectFragment extends Fragment implements View.OnClickListener {
 
             }
         });
+
+        /**
+         * set Fonts
+         */
+        setFonts();
+
+    }
+
+    private void setFonts() {
+        mTextProduct.setTypeface(mActivity.mFonts);
+        mTextScheme.setTypeface(mActivity.mFonts);
+
     }
 
     private void setPagerAdapter(ViewPager viewPager) {

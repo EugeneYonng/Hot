@@ -11,8 +11,6 @@
         android:layout_marginLeft="14dp"
         android:focusableInTouchMode="true"
         android:hint="个性昵称"
-        app:met_typeface="fonts/youyuan.ttf"
-        app:met_accentTypeface="fonts/youyuan.ttf"
         app:met_baseColor="#000000"
         app:met_textColor="#ff0290ff"
         app:met_primaryColor="#ff0290ff"
@@ -30,8 +28,6 @@
         android:layout_marginRight="14dp"
         android:focusableInTouchMode="true"
         android:hint="真实姓名"
-        app:met_typeface="fonts/youyuan.ttf"
-        app:met_accentTypeface="fonts/youyuan.ttf"
         app:met_baseColor="#000000"
         app:met_textColor="#ff0290ff"
         app:met_primaryColor="#ff0290ff"
@@ -50,8 +46,6 @@
         android:focusableInTouchMode="true"
         android:hint="name@example.com"
         android:inputType="textEmailAddress"
-        app:met_typeface="fonts/youyuan.ttf"
-        app:met_accentTypeface="fonts/youyuan.ttf"
         app:met_baseColor="#000000"
         app:met_textColor="#ff0290ff"
         app:met_primaryColor="#ff0290ff"
@@ -70,8 +64,6 @@
         android:focusableInTouchMode="true"
         android:hint="电话号码"
         android:phoneNumber="true"
-        app:met_typeface="fonts/youyuan.ttf"
-        app:met_accentTypeface="fonts/youyuan.ttf"
         app:met_baseColor="#000000"
         app:met_textColor="#ff0290ff"
         app:met_primaryColor="#ff0290ff"
@@ -90,8 +82,6 @@
         android:focusableInTouchMode="true"
         android:hint="用户密码"
         android:password="true"
-        app:met_typeface="fonts/youyuan.ttf"
-        app:met_accentTypeface="fonts/youyuan.ttf"
         app:met_baseColor="#000000"
         app:met_textColor="#ff0290ff"
         app:met_primaryColor="#ff0290ff"
@@ -100,7 +90,7 @@
         app:met_floatingLabelPadding="2dp"
         app:met_floatingLabelText="密码" />
 
-    <com.hotdoor.textview.MyTextView
+    <TextView
         android:id="@+id/btn_personal_register_next"
         android:layout_width="332dp"
         android:layout_height="40dp"

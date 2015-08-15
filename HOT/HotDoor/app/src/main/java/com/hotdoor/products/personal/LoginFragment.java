@@ -2,7 +2,6 @@ package com.hotdoor.products.personal;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -10,11 +9,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.dd.CircularProgressButton;
 import com.gc.materialdesign.views.CheckBox;
+import com.hotdoor.products.main.PersonalActivity;
 import com.hotdoor.products.main.R;
-import com.hotdoor.textview.MyTextView;
 
 
 /**
@@ -29,12 +29,15 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
     CheckBox mCbRemember;
     CheckBox mCbAutoLogin;
     CircularProgressButton mBtnLogin;
-    MyTextView mBtnRegister;
+    TextView mBtnRegister;
 
     FragmentTransaction transaction;
 
     PersonalFragment personalFragment;
     RegisterFragment registerFragment;
+
+    PersonalActivity mActivity;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,21 +47,32 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
     }
 
     private void init(View view) {
+        mActivity = (PersonalActivity) getActivity();
 
         mAccount = (EditText) view.findViewById(R.id.et_personal_account);
         mPassword = (EditText) view.findViewById(R.id.et_personal_password);
         mCbRemember = (CheckBox) view.findViewById(R.id.cb_personal_remember);
         mCbAutoLogin = (CheckBox) view.findViewById(R.id.cb_personal_login_auto);
         mBtnLogin = (CircularProgressButton) view.findViewById(R.id.btn_personal_login);
-        mBtnRegister = (MyTextView) view.findViewById(R.id.btn_personal_register);
+        mBtnRegister = (TextView) view.findViewById(R.id.btn_personal_register);
 
         mBtnLogin.setOnClickListener(this);
         mBtnRegister.setOnClickListener(this);
 
+        mActivity.mPersonalLeftTitle.setText("登陆界面");
+
         /**
          * set mBtnLogin's font
          */
-        mBtnLogin.setTypeface(Typeface.createFromAsset(getActivity().getAssets(), "fonts/youyuan.ttf"));
+        setFonts();
+
+    }
+
+    private void setFonts() {
+        mAccount.setTypeface(mActivity.mFonts);
+        mPassword.setTypeface(mActivity.mFonts);
+        mBtnLogin.setTypeface(mActivity.mFonts);
+        mBtnRegister.setTypeface(mActivity.mFonts);
 
     }
 
@@ -101,21 +115,21 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        transaction = getActivity().getFragmentManager().beginTransaction();
-        transaction.setCustomAnimations(R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_left
-                , R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_left);
         personalFragment = new PersonalFragment();
         registerFragment = new RegisterFragment();
+
+        transaction = getActivity().getFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.anim.fragment_alpha_in, R.anim.fragment_alpha_out
+                , R.anim.fragment_alpha_in, R.anim.fragment_alpha_out);
 
         switch (v.getId()) {
             case R.id.btn_personal_login:
                 mBtnLogin.setIndeterminateProgressMode(true);
                 new loginThread().start();
-
                 break;
             case R.id.btn_personal_register:
-                transaction.replace(R.id.fl_personal_main, registerFragment, "protocolFragment");
                 transaction.addToBackStack(null);
+                transaction.hide(this).add(R.id.fl_personal_main, registerFragment, "registerFragment");
                 transaction.commit();
                 break;
             default:

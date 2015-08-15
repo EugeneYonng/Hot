@@ -14,7 +14,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="50dp"
             android:src="@drawable/testimage"/>
-        <com.hotdoor.textview.MyTextView
+        <TextView
             android:id="@+id/tv_personal_personal_name"
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -31,7 +31,7 @@
         android:layout_width="60dp"
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal" >
-        <com.hotdoor.textview.MyTextView
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="注销"
@@ -56,7 +56,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/testimage" />
-            <com.hotdoor.textview.MyTextView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -82,7 +82,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/testimage" />
-            <com.hotdoor.textview.MyTextView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
