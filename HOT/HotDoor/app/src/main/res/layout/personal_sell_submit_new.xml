@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/et_personal_sell_submit_project_name"
+        android:layout_width="332dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:focusableInTouchMode="true"
+        android:hint="项目名称"
+        app:met_baseColor="#000000"
+        app:met_textColor="#ff0290ff"
+        app:met_primaryColor="#ff0290ff"
+        app:met_singleLineEllipsis="true"
+        app:met_floatingLabel="normal"
+        app:met_floatingLabelPadding="2dp"
+        app:met_floatingLabelText="项目名称" />
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/et_personal_sell_submit_project_price"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/et_personal_sell_submit_project_name"
+        android:layout_alignLeft="@id/et_personal_sell_submit_project_name"
+        android:focusableInTouchMode="true"
+        android:hint="项目总价"
+        android:inputType="number"
+        app:met_baseColor="#000000"
+        app:met_textColor="#ff0290ff"
+        app:met_primaryColor="#ff0290ff"
+        app:met_singleLineEllipsis="true"
+        app:met_floatingLabel="normal"
+        app:met_floatingLabelPadding="2dp"
+        app:met_floatingLabelText="项目总价" />
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:id="@+id/et_personal_sell_submit_project_time"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/et_personal_sell_submit_project_name"
+        android:layout_alignRight="@id/et_personal_sell_submit_project_name"
+        android:focusableInTouchMode="true"
+        android:hint="预计实施时间"
+        android:inputType="datetime"
+        app:met_baseColor="#000000"
+        app:met_textColor="#ff0290ff"
+        app:met_primaryColor="#ff0290ff"
+        app:met_singleLineEllipsis="true"
+        app:met_floatingLabel="normal"
+        app:met_floatingLabelPadding="2dp"
+        app:met_floatingLabelText="实施时间" />
+
+    <FrameLayout
+        android:id="@+id/fl_personal_sell_submit_message"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/et_personal_sell_submit_project_price"
+        android:background="@drawable/shape_sell_submit_message" >
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/et_personal_sell_submit_project_message"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="2dp"
+            android:padding="2dp"
+            android:focusableInTouchMode="true"
+            android:background="@null"
+            android:hint="备注"
+            app:met_baseColor="#000000"
+            app:met_textColor="#ff0290ff"
+            app:met_primaryColor="#ffffff"
+            app:met_hideUnderline="true"
+            app:met_floatingLabel="normal"
+            app:met_floatingLabelPadding="2dp"
+            app:met_floatingLabelText="备注"
+            app:met_maxCharacters="160" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/btn_personal_sell_submit_confirm"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/fl_personal_sell_submit_message"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/selector_corners_10dp"
+        android:text="提交"
+        android:textSize="18sp"
+        android:textColor="#FFFFFF"
+        android:gravity="center" />
+
+</RelativeLayout>

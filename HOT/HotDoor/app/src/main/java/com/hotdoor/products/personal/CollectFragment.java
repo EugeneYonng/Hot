@@ -46,7 +46,7 @@ public class CollectFragment extends Fragment implements View.OnClickListener {
     private ArrayList<ProListItem> listProItem;
     private SharedPreferences share;
     private SharedPreferences.Editor editor;
-    private ProdAdapter proadapter;
+    private ProdAdapter proAdapter;
     private ArrayList<String> arrayTitle;
     private ArrayList<String> arrayModle;
 
@@ -151,8 +151,8 @@ public class CollectFragment extends Fragment implements View.OnClickListener {
                 switch (position) {
                     case 0:
                         listCollect = (ListView) v.findViewById(R.id.lv_product_list);
-                        proadapter = new ProdAdapter(getActivity(),listProItem);
-                        listCollect.setAdapter(proadapter);
+                        proAdapter = new ProdAdapter(getActivity(),listProItem);
+                        listCollect.setAdapter(proAdapter);
 //                        listCollect.setOnItemClickListener();
                         listCollect.setOnItemLongClickListener(longlistener);
                         break;
@@ -239,7 +239,7 @@ public class CollectFragment extends Fragment implements View.OnClickListener {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case UPDATE_PRODUCT:
-                    proadapter.notifyDataSetChanged();
+                    proAdapter.notifyDataSetChanged();
                     break;
                 case UPDATE_METHOD:
                     break;

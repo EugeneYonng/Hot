@@ -1,7 +1,6 @@
 package com.hotdoor.products.personal;
 
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -68,11 +67,6 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         personalFragment = new PersonalFragment();
 
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.setCustomAnimations(R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_left
-                , R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_left);
-        transaction.remove(this);
-        transaction.add(R.id.fl_personal_main, personalFragment, "registerEnterFragment");
-        transaction.commit();
+        mActivity.changeFragment(this, personalFragment, "registerEnterFragment", 1, false, true);
     }
 }

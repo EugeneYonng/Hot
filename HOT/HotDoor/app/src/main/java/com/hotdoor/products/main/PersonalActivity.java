@@ -1,6 +1,7 @@
 package com.hotdoor.products.main;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -70,12 +71,13 @@ public class PersonalActivity extends Activity implements View.OnClickListener {
     }
 
     private void popBackFragment() {
-        if (getFragmentManager().findFragmentByTag("collectFragment") != null) {
+        if (getFragmentManager().findFragmentByTag("submitedFragment") != null) {
+            getFragmentManager().popBackStack();
+        } else if (getFragmentManager().findFragmentByTag("collectFragment") != null) {
+            getFragmentManager().popBackStack();
+        } else if (getFragmentManager().findFragmentByTag("sellFragment") != null) {
             getFragmentManager().popBackStack();
         } else if (getFragmentManager().findFragmentByTag("registerEnterFragment") != null) {
-            /**
-             * 如果注册完成进入个人界面，那么此时退出将会退出activity
-             */
             Intent intent = new Intent(MainActivity.ACTION_MAINACTIVITY);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             this.startActivity(intent);
@@ -87,6 +89,34 @@ public class PersonalActivity extends Activity implements View.OnClickListener {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             this.startActivity(intent);
             this.finish();
+        }
+    }
+
+    public void changeFragment(Fragment from, Fragment to, String tag, int flag, boolean pop, boolean replace) {
+        if (from == null || to == null)
+            return;
+
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        if (flag == 0) {//alpha animation
+            transaction.setCustomAnimations(R.anim.fragment_alpha_in, R.anim.fragment_alpha_out
+                    , R.anim.fragment_alpha_in, R.anim.fragment_alpha_out);
+        } else if (flag == 1) {//slide animation
+            transaction.setCustomAnimations(R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_left
+                    , R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_left);
+        }
+
+        if (pop == true)
+            transaction.addToBackStack(null);
+
+        if (replace == true) {
+            transaction.remove(from);
+            transaction.add(R.id.fl_personal_main, to, tag).commit();
+        } else {
+            if (!to.isAdded()) {
+                transaction.hide(from).add(R.id.fl_personal_main, to, tag).commit();
+            } else {
+                transaction.hide(from).show(to).commit();
+            }
         }
     }
 
