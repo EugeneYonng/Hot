@@ -11,7 +11,7 @@
         android:paddingTop="34dp"
         android:gravity="center"
         android:text="欢迎登陆国芯云"
-        android:textSize="30dp"
+        android:textSize="28dp"
         android:textColor="#0080FF" />
 
     <com.rengwuxian.materialedittext.MaterialEditText
@@ -24,8 +24,6 @@
         android:focusableInTouchMode="true"
         android:hint="手机或邮箱"
         android:inputType="phone"
-        app:met_typeface="fonts/youyuan.ttf"
-        app:met_accentTypeface="fonts/youyuan.ttf"
         app:met_baseColor="#000000"
         app:met_textColor="#ff0290ff"
         app:met_primaryColor="#ff0290ff"
@@ -53,8 +51,6 @@
         android:focusableInTouchMode="true"
         android:hint="用户密码"
         android:password="true"
-        app:met_typeface="fonts/youyuan.ttf"
-        app:met_accentTypeface="fonts/youyuan.ttf"
         app:met_baseColor="#000000"
         app:met_textColor="#ff0290ff"
         app:met_primaryColor="#ff0290ff"

@@ -1,7 +1,6 @@
 package com.hotdoor.products.personal;
 
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -24,6 +23,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
     final static int UPDATEPROCESS = 0;
 
+    TextView mTextTitleWelcome;
     EditText mAccount;
     EditText mPassword;
     CheckBox mCbRemember;
@@ -31,13 +31,10 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
     CircularProgressButton mBtnLogin;
     TextView mBtnRegister;
 
-    FragmentTransaction transaction;
-
     PersonalFragment personalFragment;
     RegisterFragment registerFragment;
 
     PersonalActivity mActivity;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -49,6 +46,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
     private void init(View view) {
         mActivity = (PersonalActivity) getActivity();
 
+        mTextTitleWelcome = (TextView) view.findViewById(R.id.tv_personal_title_welcome);
         mAccount = (EditText) view.findViewById(R.id.et_personal_account);
         mPassword = (EditText) view.findViewById(R.id.et_personal_password);
         mCbRemember = (CheckBox) view.findViewById(R.id.cb_personal_remember);
@@ -69,11 +67,11 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
     }
 
     private void setFonts() {
+        mTextTitleWelcome.setTypeface(mActivity.mFonts);
         mAccount.setTypeface(mActivity.mFonts);
         mPassword.setTypeface(mActivity.mFonts);
         mBtnLogin.setTypeface(mActivity.mFonts);
         mBtnRegister.setTypeface(mActivity.mFonts);
-
     }
 
     private class loginThread extends Thread {
@@ -104,8 +102,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
                 case LoginFragment.UPDATEPROCESS:
                     mBtnLogin.setProgress(msg.getData().getInt("process"));
                     if(msg.getData().getInt("process") == 100) {
-                        transaction.replace(R.id.fl_personal_main, personalFragment);
-                        transaction.commit();
+                        mActivity.changeFragment(LoginFragment.this, personalFragment
+                                , "personalFragment", 1, false, false);
                     }
                     break;
             }
@@ -115,22 +113,15 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        personalFragment = new PersonalFragment();
-        registerFragment = new RegisterFragment();
-
-        transaction = getActivity().getFragmentManager().beginTransaction();
-        transaction.setCustomAnimations(R.anim.fragment_alpha_in, R.anim.fragment_alpha_out
-                , R.anim.fragment_alpha_in, R.anim.fragment_alpha_out);
-
         switch (v.getId()) {
             case R.id.btn_personal_login:
+                personalFragment = new PersonalFragment();
                 mBtnLogin.setIndeterminateProgressMode(true);
                 new loginThread().start();
                 break;
             case R.id.btn_personal_register:
-                transaction.addToBackStack(null);
-                transaction.hide(this).add(R.id.fl_personal_main, registerFragment, "registerFragment");
-                transaction.commit();
+                registerFragment = new RegisterFragment();
+                mActivity.changeFragment(this, registerFragment, "registerFragment", 0, true, false);
                 break;
             default:
                 break;

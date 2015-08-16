@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="16dp"
+    android:paddingLeft="10dp"
+    android:orientation="horizontal" >
+    <TextView
+        android:id="@+id/tv_personal_sell_submit_history_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="项目名称"
+        android:textSize="20sp"
+        android:textColor="#0080FF"
+        android:gravity="center_vertical" />
+</LinearLayout>

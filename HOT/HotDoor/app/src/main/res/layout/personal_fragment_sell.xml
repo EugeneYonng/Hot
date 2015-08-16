@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:weightSum="2" >
+        <com.romainpiel.shimmer.ShimmerTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/tv_personal_sell_tab_submit"
+            android:text="新增报备"
+            android:textColor="#ff9478ff"
+            android:textSize="19sp"
+            android:gravity="center"
+            android:background="#f08bffc5" />
+        <com.romainpiel.shimmer.ShimmerTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/tv_personal_sell_tab_history"
+            android:text="历史报备"
+            android:layout_weight="1"
+            android:textSize="19sp"
+            android:gravity="center"
+            android:background="#3a020201"
+            android:textColor="#ff6f6f6f" />
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_personal_sell"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

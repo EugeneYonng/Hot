@@ -5,36 +5,32 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.hotdoor.list.CmpListItem;
 import com.hotdoor.products.main.R;
 
-import java.util.ArrayList;
-
 /**
- * Created by Yip on 2015/8/5.
+ * Created by Yip on 2015/8/16.
  */
-public class CmpAdapter extends BaseAdapter {
+public class PersonalSellItemAdapter extends BaseAdapter {
     private Context mContext;
     private LayoutInflater inflater;
-    private ArrayList<CmpListItem> mList = new ArrayList<>();
+    private String[] mItem;
 
-    public CmpAdapter(Context context, ArrayList<CmpListItem> list) {
+    public PersonalSellItemAdapter(Context context, String[] mItem) {
         this.mContext = context;
-        this.mList = list;
+        this.mItem = mItem;
         inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
     public int getCount() {
-        return mList.size();
+        return mItem.length;
     }
 
     @Override
     public Object getItem(int position) {
-        return mList.get(position);
+        return mItem[position];
     }
 
     @Override
@@ -46,25 +42,23 @@ public class CmpAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder = null;
         if (convertView == null || convertView.getTag() == null) {
-            convertView = inflater.inflate(R.layout.company_listview_item, null);
+            convertView = inflater.inflate(R.layout.personal_sell_submit_history_item, null);
             holder = new ViewHolder(convertView);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.mIcon.setImageResource(mList.get(position).getImageId());
-        holder.mText.setText(mList.get(position).getText());
+
+        holder.mText.setText(mItem[position]);
 
         return convertView;
     }
 
-    private final static class ViewHolder {
-        ImageView mIcon;
+    private class ViewHolder {
         TextView mText;
 
         public ViewHolder(View view) {
-            this.mIcon = (ImageView) view.findViewById(R.id.iv_company_list_item);
-            this.mText = (TextView) view.findViewById(R.id.text_company_list_item);
+            mText = (TextView) view.findViewById(R.id.tv_personal_sell_submit_history_item);
         }
     }
 }

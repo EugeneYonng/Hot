@@ -1,7 +1,6 @@
 package com.hotdoor.products.personal;
 
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,31 +59,21 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
 
     private void setFonts() {
         mTextPersonalName.setTypeface(mActivity.mFonts);
-
     }
 
     @Override
     public void onClick(View v) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.setCustomAnimations(R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_left
-                , R.anim.fragment_slide_in_right, R.anim.fragment_slide_out_left);
-        collectFragment = new CollectFragment();
-        sellFragment = new SellFragment();
-
         switch (v.getId()) {
             case R.id.btn_personal_personal_collect:
-                transaction.hide(this).add(R.id.fl_personal_main, collectFragment, "collectFragment");
-                transaction.addToBackStack(null);
-                transaction.commit();
+                collectFragment = new CollectFragment();
+                mActivity.changeFragment(this, collectFragment, "collectFragment", 1, true, false);
                 break;
             case R.id.btn_personal_personal_sell:
-                transaction.hide(this).add(R.id.fl_personal_main, sellFragment, "sellFragment");
-                transaction.addToBackStack(null);
-                transaction.commit();
+                sellFragment = new SellFragment();
+                mActivity.changeFragment(this, sellFragment, "sellFragment", 1, true, false);
                 break;
             default:
                 break;
-
         }
     }
 }
