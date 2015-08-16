@@ -43,7 +43,7 @@ public class ProductFragment extends Fragment {
     private Timer pagerTimer;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.product_fragment, container, false);
         init(view);
 
