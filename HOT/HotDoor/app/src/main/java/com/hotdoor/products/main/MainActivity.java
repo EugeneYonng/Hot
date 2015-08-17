@@ -97,7 +97,7 @@ public class MainActivity extends Activity {
         rippPersonal.setOnRippleCompleteListener(new myListener());
         rippServer.setOnRippleCompleteListener(new myListener());
 
-        new Timer().schedule(new myTimeTask(), 0, 4000);
+        new Timer().schedule(new myTimeTask(), 4000, 4000);
     }
 
     private void init() {
