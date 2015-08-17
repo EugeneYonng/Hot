@@ -1,8 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:expandableTextView="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/ll_company_introduct">
+        <TextView
+            android:id="@+id/tv_personal_title_welcome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="国芯云科技股份有限公司"
+            android:textSize="28dp"
+            android:textColor="#0080FF" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/tv_company_introduct"
+            android:fontFamily="sans-serif-light"
+            android:textSize="16sp"
+            android:textColor="#666666"
+            android:text="@string/companyIntroduct"
+            android:layout_marginBottom="10dp"/>
 
-</LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_margin="10dp"
+            android:background="#20000000"/>
+
+        <TextView
+            android:id="@+id/tv_company_title_1"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginLeft="10dp"
+            android:text="科技发明"
+            android:singleLine="true"
+            android:textColor="#333333"
+            android:textSize="18sp"/>
+        <com.ms.square.android.expandabletextview.ExpandableTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/etv_company_introduct_technology"
+            expandableTextView:maxCollapsedLines="4">
+            <TextView
+                android:id="@id/expandable_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="sans-serif-light"
+                android:textSize="16sp"
+                android:textColor="#666666" />
+            <ImageButton
+                android:id="@id/expand_collapse"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="16dp"
+                android:layout_gravity="right|bottom"
+                android:background="@android:color/transparent"/>
+        </com.ms.square.android.expandabletextview.ExpandableTextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginLeft="10dp"
+            android:text="优质产品"
+            android:singleLine="true"
+            android:textColor="#333333"
+            android:textSize="18sp" />
+        <com.ms.square.android.expandabletextview.ExpandableTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/etv_company_introduct_product"
+            expandableTextView:maxCollapsedLines="4">
+            <TextView
+                android:id="@id/expandable_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="sans-serif-light"
+                android:textSize="16sp"
+                android:textColor="#666666" />
+            <ImageButton
+                android:id="@id/expand_collapse"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="16dp"
+                android:layout_gravity="right|bottom"
+                android:background="@android:color/transparent"/>
+        </com.ms.square.android.expandabletextview.ExpandableTextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginLeft="10dp"
+            android:text="解决方案"
+            android:singleLine="true"
+            android:textColor="#333333"
+            android:textSize="18sp" />
+        <com.ms.square.android.expandabletextview.ExpandableTextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/etv_company_introduct_method"
+            expandableTextView:maxCollapsedLines="4">
+            <TextView
+                android:id="@id/expandable_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="sans-serif-light"
+                android:textSize="16sp"
+                android:textColor="#666666" />
+            <ImageButton
+                android:id="@id/expand_collapse"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_margin="16dp"
+                android:layout_gravity="right|bottom"
+                android:background="@android:color/transparent"/>
+        </com.ms.square.android.expandabletextview.ExpandableTextView>
+    </LinearLayout>
+</ScrollView>
+

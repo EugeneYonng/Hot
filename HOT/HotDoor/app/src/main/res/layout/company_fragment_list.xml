@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="210dp">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <me.relex.circleindicator.CircleIndicator
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:id="@+id/ci_company"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp">
+        </me.relex.circleindicator.CircleIndicator>
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/list_campany"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:divider="#000000"
+        android:dividerHeight="1.5dp" />
+
+</LinearLayout>

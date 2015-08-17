@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:expandable="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp">
+    <com.andexert.expandablelayout.library.ExpandableLayoutItem
+        android:id="@+id/row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#201e0b1b"
+        expandable:headerLayout="@layout/company_introduction_list_header"
+        expandable:contentLayout="@layout/company_introduction_list_content"
+        />
+</LinearLayout>

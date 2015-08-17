@@ -17,7 +17,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:src="@drawable/testimage" />
+            android:src="@drawable/testimage"
+            android:id="@+id/iv_company_left_icon"/>
         <com.hotdoor.textview.MyTextView
             android:id="@+id/text_main"
             android:layout_width="wrap_content"
@@ -27,23 +28,12 @@
             android:text="公司简介"
             android:textColor="@android:color/white" />
     </LinearLayout>
-
-    <RelativeLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="210dp">
-        <android.support.v4.view.ViewPager
-            android:id="@+id/vp_company"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </RelativeLayout>
-
-    <ListView
-        android:id="@+id/list_campany"
-        android:layout_width="240dp"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:divider="#000000"
-        android:dividerHeight="1.5dp" />
+        android:id="@+id/fl_company_main">
+    </FrameLayout>
+
+
 
 </LinearLayout>
