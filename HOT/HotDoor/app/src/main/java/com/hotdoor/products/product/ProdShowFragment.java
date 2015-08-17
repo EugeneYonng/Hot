@@ -41,23 +41,25 @@ public class ProdShowFragment extends Fragment{
     private ShimmerTextView textShowSecond;
     private ShimmerTextView textShowThird;
     private ShimmerTextView textShowFourth;
-    private String productTitle;
-    private int imageResource;
-    private int productID;
-    private Shimmer shimmer;
-    private ImageView imageShow;
-    private boolean isCollect;
-    private SharedPreferences share;
-    private SharedPreferences.Editor editor;
-    private ArrayList<String> productCollect;
-    private ArrayList<String> arrayTitle;
-    private collectListener myListener;
     private ExpandableTextView etvShowText;
     private ExpandableTextView etvFuntionText;
     private ExpandableTextView etvStandardText;
     private TextView productTextTitle1;
     private TextView productTextTitle2;
     private TextView productTextTitle3;
+    private Shimmer shimmer;
+    private ImageView imageShow;
+    private collectListener myListener;
+
+    private int listimageResource;
+    private String listTextString;
+    private int productID;
+
+    private SharedPreferences share;
+    private SharedPreferences.Editor editor;
+    private ArrayList<String> listTitle;
+    private ArrayList<String> listText;
+    private ArrayList<Integer> listResource;
 
 
 //    public ProdShowFragment(String[] title ,int imagRes) {
@@ -97,8 +99,11 @@ public class ProdShowFragment extends Fragment{
         ProductActivity.imagProCollect.setVisibility(View.VISIBLE);  //显示收藏按钮s
         ProductActivity.imagProCollect.setOnClickListener(myListener);
 
-        productCollect = new ArrayList<String>();  //创建对应的数组
-        arrayTitle = new ArrayList<String>();
+//        productCollect = new ArrayList<String>();  //创建对应的数组
+//        arrayTitle = new ArrayList<String>();
+        listResource = new ArrayList<Integer>();
+        listText = new ArrayList<String>();
+        listTitle = new ArrayList<String>();
 
         new readXMLThread().start();
 //        imageShow.setBackgroundResource(this.imageResource);
@@ -106,10 +111,18 @@ public class ProdShowFragment extends Fragment{
 
     }
 
+    public void setListimageResource(int resource) {
+        this.listimageResource = resource;
+    }
+
+    public void setListTextString (String text) {
+        this.listTextString = text;
+    }
+
     private void setProductIntroduceText(int id) {
         switch (id) {
             case ProductListString.GXY_EDU12:
-                Log.d("Product",ProductListString.PRODUCT_ID.get(ProductListString.GXY_EDU12));
+                Log.d("Product",ProductListString.PRODUCT_ID.get(ProductListString.GXY_EDU12));   //在此处设置产品介绍文字
                 break;
             case ProductListString.GXY_EDU26:
                 Log.d("Product",ProductListString.PRODUCT_ID.get(ProductListString.GXY_EDU26));
@@ -174,10 +187,6 @@ public class ProdShowFragment extends Fragment{
         this.productID = id;
     }
 
-    public void setProductTitle(String title) {
-        this.productTitle = title;
-    }
-
     class readXMLThread extends Thread {
         @Override
         public void run() {   //读取xml文件，设置收藏按钮为红色或者白色
@@ -189,27 +198,27 @@ public class ProdShowFragment extends Fragment{
                 myshowHandler.sendEmptyMessage(ProdShowFragment.SETNOTCOLLECT);
                 myListener.setState(STATE_LOGOUT);
             }
+
+            showCurrentCollect();
         }
 
         private void readProductXML() {
             share = getActivity().getSharedPreferences(MainActivity.account+"product", Activity.MODE_PRIVATE);
-            int count = share.getInt("count",0);
+            int count = share.getInt("count",0);  //读取收藏数
 
             if (count != 0) {  //收藏数不为0
                 Log.d("readProductXML","not zero");
                 String buffer;
 
                 for (int i=0 ; i<count ; i++) {
-                    buffer = share.getString(""+i+"model","");  //读取型号
-                    arrayTitle.add(share.getString(""+i+"title",""));  //读取标题
-                    Log.d("readProductXML",share.getString(""+i+"title",""));
-                    Log.d("readProductXML",buffer);
-                    if (buffer != null) {
-                        productCollect.add(buffer);
-                    }
+                    listTitle.add(share.getString(""+i+"title",""));
+                    listText.add(share.getString("" + i + "text", ""));  //读取标题
+                    listResource.add(new Integer(share.getInt(""+i+"resource",0)));
+                    Log.d("readProductXML", share.getString("" + i + "title", ""));
+
                 }
 
-                if (productCollect.contains(ProductActivity.titleBuffer[2])) {   //检查是否有收藏,
+                if (listTitle.contains(ProductActivity.titleBuffer[2])) {   //检查是否有收藏,
                     myshowHandler.sendEmptyMessage(ProdShowFragment.SETCOLLECT);  //按钮为红色
                     myListener.setState(STATE_COLLECT);
                 }else{  //没有找到,没有收藏
@@ -228,6 +237,14 @@ public class ProdShowFragment extends Fragment{
         }
     }
 
+    private void showCurrentCollect() {
+        for(int i=0;i<listTitle.size();i++) {
+            Log.d("showCurrentCollect","title:"+i+listTitle.get(i) );
+            Log.d("showCurrentCollect","text:"+i+listText.get(i));
+            Log.d("showCurrentCollect","resource"+i+listResource.get(i));
+        }
+    }
+
     private class collectListener implements View.OnClickListener{
 
         private int state = STATE_LOGOUT;
@@ -241,18 +258,18 @@ public class ProdShowFragment extends Fragment{
             Log.d("myListener","onClick");
             switch (state) {
                 case STATE_CANCLE:  //点击收藏,添加信息，设置收藏按钮为红色,改变监听器状态
-                    Log.d("onClick","增加收藏");
+                    Log.d("onClick", "增加收藏");
                     new writeXMLThread(STATE_ADD).start();  //增加收藏
                     myshowHandler.sendEmptyMessage(SETCOLLECT);
                     this.state = STATE_COLLECT;
-                    showCurrentItem();
+//                    showCurrentItem();
                     break;
                 case STATE_COLLECT:   //点击取消，删除xml里面的信息，设置收藏按钮为白色,改变监听器状态
-                    Log.d("onClick","取消收藏");
+                    Log.d("onClick", "取消收藏");
                     new writeXMLThread(STATE_DELETE).start();  //取消收藏
                     myshowHandler.sendEmptyMessage(SETNOTCOLLECT);
                     this.state = STATE_CANCLE;
-                    showCurrentItem();
+//                    showCurrentItem();
                     break;
                 case STATE_LOGOUT:   //跳转到登陆界面Frgment
                     Log.d("onClick","LOGOUT");
@@ -261,12 +278,12 @@ public class ProdShowFragment extends Fragment{
         }
     }
 
-    private void showCurrentItem() {
-        for (int i=0 ; i<productCollect.size() ;i++) {
-            Log.d("showCurrentItem"+i,productCollect.get(i));
-            Log.d("showCurrentItem" + i, arrayTitle.get(i));
-        }
-    }
+//    private void showCurrentItem() {
+//        for (int i=0 ; i<productCollect.size() ;i++) {
+//            Log.d("showCurrentItem"+i,productCollect.get(i));
+//            Log.d("showCurrentItem" + i, arrayTitle.get(i));
+//        }
+//    }
 
     class writeXMLThread extends Thread {  //点击收藏按钮后，写入xml文件。
         private int state;
@@ -281,24 +298,24 @@ public class ProdShowFragment extends Fragment{
             }else if(state == STATE_DELETE) {
                 deleteProductXML();
             }
-
+            showCurrentCollect();
         }
 
         private void deleteProductXML() {
             share = getActivity().getSharedPreferences(MainActivity.account + "product", Activity.MODE_PRIVATE);
             editor = share.edit();
-            Log.d("deleteProductXML",""+productCollect.size());
+            Log.d("deleteProductXML",""+listTitle.size());
 
-            arrayTitle.remove(productCollect.indexOf(ProductActivity.titleBuffer[2]));
-            productCollect.remove(ProductActivity.titleBuffer[2]);
+            listText.remove(listTitle.indexOf(ProductActivity.titleBuffer[2]));  //删除标题对应的内容
+            listResource.remove(listTitle.indexOf(ProductActivity.titleBuffer[2]));  //删除标题对应的图片
+            listTitle.remove(ProductActivity.titleBuffer[2]);  //删除辩题
 
-            Log.d("deleteProductXML",""+productCollect.size());
-            editor.putInt("count",productCollect.size());
-            for (int i=0 ;i<productCollect.size() ; i++) {    //重写xml文件
-                editor.putString(""+i+"model",productCollect.get(i));
-                editor.putString(""+i+"title",arrayTitle.get(i));
-                Log.d("deleteProductXML", "" + i + " :" + productCollect.get(i));
-                Log.d("deleteProductXM", "" + i + " :" + arrayTitle.get(i));
+            Log.d("deleteProductXML", "" + listTitle.size());
+            editor.putInt("count", listTitle.size());
+            for (int i=0 ;i<listTitle.size() ; i++) {    //重写xml文件
+                editor.putString("" + i + "title", listTitle.get(i));
+                editor.putString("" + i + "text", listText.get(i));
+                editor.putInt("" + i + "resource", listResource.get(i).intValue());
             }
             editor.commit();
         }
@@ -306,11 +323,14 @@ public class ProdShowFragment extends Fragment{
         private void addProductXML() {
             share = getActivity().getSharedPreferences(MainActivity.account + "product", Activity.MODE_PRIVATE);
             editor = share.edit();
-            productCollect.add(ProductActivity.titleBuffer[2]);
-            arrayTitle.add(productTitle);
-            editor.putInt("count", productCollect.size());
-            editor.putString("" + (productCollect.size() - 1)+"model", ProductActivity.titleBuffer[2]);
-            editor.putString(""+ (productCollect.size()-1)+"title", productTitle);
+            listTitle.add(ProductActivity.titleBuffer[2]);
+            listText.add(listTextString);
+            listResource.add(listimageResource);
+
+            editor.putInt("count", listTitle.size());
+            editor.putString("" + (listTitle.size() - 1) + "title", ProductActivity.titleBuffer[2]);
+            editor.putString(""+ (listTitle.size()-1)+"text", listTextString);
+            editor.putInt(""+ (listTitle.size()-1)+"resource", listimageResource);
             editor.commit();
         }
     }

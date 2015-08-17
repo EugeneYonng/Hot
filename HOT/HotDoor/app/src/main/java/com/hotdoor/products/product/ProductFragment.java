@@ -129,33 +129,39 @@ public class ProductFragment extends Fragment {
             switch(v.getId()){
                 case R.id.rv_cloud_computer:
                     Log.d("onComplete", "cloud_computer");
-                    fragProList = new ProListFragment(ProductListString.CLOUDCOMPUTER);
+                    fragProList = new ProListFragment();
+                    fragProList.setShowID(ProductListString.CLOUDCOMPUTER);
                     ProductFragment.this.textProdTitle.setText("云电脑");
                     ProductActivity.titleBuffer[1] = "云电脑";
                  //   fragProList.set
                     break;
                 case R.id.rv_cloud_manager:
-                    fragProList = new ProListFragment(ProductListString.CLOUDMANAGER);
+                    fragProList = new ProListFragment();
+                    fragProList.setShowID(ProductListString.CLOUDMANAGER);
                     ProductFragment.this.textProdTitle.setText("云管理");
                     ProductActivity.titleBuffer[1] = "云管理";
                     break;
                 case R.id.rv_cloud_safe:
-                    fragProList = new ProListFragment(ProductListString.CLOUDSAFE);
+                    fragProList = new ProListFragment();
+                    fragProList.setShowID(ProductListString.CLOUDSAFE);
                     ProductFragment.this.textProdTitle.setText("云安全");
                     ProductActivity.titleBuffer[1] = "云安全";
                     break;
                 case R.id.rv_cloud_save:
-                    fragProList = new ProListFragment(ProductListString.CLOUDSAVE);
+                    fragProList = new ProListFragment();
+                    fragProList.setShowID(ProductListString.CLOUDSAVE);
                     ProductFragment.this.textProdTitle.setText("云存储");
                     ProductActivity.titleBuffer[1] = "云存储";
                     break;
                 case R.id.rv_smart_cloud_server:
-                    fragProList = new ProListFragment(ProductListString.SMARTCLOUDSERVER);
+                    fragProList = new ProListFragment();
+                    fragProList.setShowID(ProductListString.SMARTCLOUDSERVER);
                     ProductFragment.this.textProdTitle.setText("睿云服务器");
                     ProductActivity.titleBuffer[1] = "睿云服务器";
                     break;
                 case R.id.rv_cloud_speed:
-                    fragProList = new ProListFragment(ProductListString.CLOUDSPEED);
+                    fragProList = new ProListFragment();
+                    fragProList.setShowID(ProductListString.CLOUDSPEED);
                     ProductFragment.this.textProdTitle.setText("云提速");
                     ProductActivity.titleBuffer[1] = "云提速";
                     break;

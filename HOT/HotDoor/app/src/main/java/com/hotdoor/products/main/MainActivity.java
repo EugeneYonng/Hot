@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
     public static final String ACTION_SERVICE = "com.hotdoor.products.main.ServiceActivity";
 
     public static boolean isLogin = true;    //登陆状态
-    public static String account = "testaccount4" ;
+    public static String account = "testaccount5" ;
 
     private ViewPager pagerMain;
     private RippleView rippCompany;

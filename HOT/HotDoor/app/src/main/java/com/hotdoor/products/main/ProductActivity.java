@@ -98,11 +98,13 @@ public class ProductActivity extends Activity {
         if (getFragmentManager().findFragmentByTag("showfragment") != null) {   //从showfragment退回
             getFragmentManager().popBackStack();
             textProdTitle.setText(titleBuffer[1]);
+            imagProCollect.setBackgroundColor(0xff0080FF);   //设置蓝色背景
             imagProCollect.setVisibility(View.INVISIBLE);
             imagProCollect.setOnClickListener(null);
         }else if (getFragmentManager().findFragmentByTag("FragProList") != null) {   //从FragProList退回
             getFragmentManager().popBackStack();
             textProdTitle.setText(titleBuffer[0]);
+            imagProCollect.setBackgroundColor(0xff0080FF);   //设置蓝色背景
             imagProCollect.setVisibility(View.INVISIBLE);
             imagProCollect.setOnClickListener(null);
         } else {   //从ProductFragmnet退回
