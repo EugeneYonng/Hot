@@ -10,21 +10,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.andexert.expandablelayout.library.ExpandableLayout;
-import com.andexert.expandablelayout.library.ExpandableLayoutListView;
-import com.hotdoor.adapter.MethodShowAdapter;
-import com.hotdoor.list.MtdListItem;
 import com.hotdoor.list.ProductListString;
 import com.hotdoor.products.main.MainActivity;
 import com.hotdoor.products.main.MethodActivity;
-import com.hotdoor.products.main.ProductActivity;
 import com.hotdoor.products.main.R;
-import com.ms.square.android.expandabletextview.ExpandableTextView;
 import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
 
@@ -293,7 +287,7 @@ public class MethodShowFragment extends Fragment{
                     int[] resource = date.getIntArray("resource");
 
                     for (int i=0 ; i<titleString.length ; i++) {
-                        ExpandableLayout item = (ExpandableLayout) getActivity().getLayoutInflater().inflate(R.layout.method_show_item,null);
+                        ExpandableLayout item = (ExpandableLayout) getActivity().getLayoutInflater().inflate(R.layout.method_show_item, null);
                         TextView title = (TextView) item.findViewById(R.id.tv_method_list_header);
                         TextView text = (TextView) item.findViewById(R.id.tv_method_show_list_text);
                         ImageView imag = (ImageView) item.findViewById(R.id.iv_method_show_list_icon);
