@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <TextView
+        android:id="@+id/tv_service_show_list_header"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+        android:singleLine="true"
+        android:focusableInTouchMode="true"
+        android:textColor="#333333"
+        android:textSize="18sp"
+        android:text="保修条例" />
+    <ImageView
+        android:id="@+id/iv_service_show_list_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:src="@drawable/ic_expand_more_black_18dp"
+        android:layout_centerVertical="true" />
+
+</RelativeLayout>

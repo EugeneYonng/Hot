@@ -32,7 +32,8 @@ public class PersonalActivity extends Activity implements View.OnClickListener {
 
         init();
 
-        setDefaultFragment();
+        if (savedInstanceState == null)
+            setDefaultFragment();
     }
 
     private void init() {
