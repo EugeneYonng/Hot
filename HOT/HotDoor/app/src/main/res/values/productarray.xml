@@ -1,0 +1,65 @@
+<resources>
+    <string-array name="cloudSpeedListTitle">
+        <item>教育型:GXY_EDU12</item>
+        <item>教育型:GXY_EDU26</item>
+        <item>企业型:GXY_ENT12</item>
+        <item>企业型:GXY_ENT26</item>
+    </string-array>
+    <string-array name="cloudSpeedListText">
+        <item>适用于学校、用低成本打造高性价比的云化机房</item>
+        <item>适用于学校、用低成本打造高性价比的云化机房</item>
+        <item>适用于学校、用低成本打造高性价比的云化机房</item>
+        <item>适用于学校、用低成本打造高性价比的云化机房</item>
+    </string-array>
+
+    <string-array name="cloudSafeListTitle">
+        <item>教育型:GXY_AEDU26</item>
+        <item>标准型:STD26</item>
+        <item>增强型:GXY_ENH26</item>
+        <item>高级型:GXY_ADV26</item>
+        <item>高级型:GXY_ADV14B</item>
+    </string-array>
+    <string-array name="cloudSafeListText">
+        <item>适用于学校、用低成本打造高性价比的云化机房</item>
+        <item>适用于学校、用低成本打造高性价比的云化机房</item>
+        <item>适用于学校、用低成本打造高性价比的云化机房</item>
+        <item>适用于学校、用低成本打造高性价比的云化机房</item>
+        <item>适用于学校、用低成本打造高性价比的云化机房</item>
+    </string-array>
+
+    <string-array name="cloudSaveListTitle">
+        <item>企业型:GXY_EXS26</item>
+        <item>企业型:GXY_EXS26</item>
+    </string-array>
+    <string-array name="cloudSaveListText">
+        <item>适用于学校、用低成本打造高性价比的云化机房</item>
+        <item>适用于学校、用低成本打造高性价比的云化机房</item>
+    </string-array>
+
+    <string-array name="cloudManagerListTitle">
+        <item>企业型:GXY_DTP12</item>
+        <item>企业型:GXY_DTP26</item>
+    </string-array>
+    <string-array name="cloudManagerListText">
+        <item>适用于学校、用低成本打造高性价比的云化机房</item>
+        <item>适用于学校、用低成本打造高性价比的云化机房</item>
+    </string-array>
+
+    <string-array name="smartCloudServerListTitle">
+        <item>企业型:GXY_OA12</item>
+        <item>企业型:GXY_OA26</item>
+    </string-array>
+    <string-array name="smartCloudServerListText">
+        <item>适用于学校、用低成本打造高性价比的云化机房</item>
+        <item>适用于学校、用低成本打造高性价比的云化机房</item>
+    </string-array>
+
+    <string-array name="cloudComputerListTitle">
+        <item>教育型:GXY_C3</item>
+        <item>教育型:GXY_37</item>
+    </string-array>
+    <string-array name="cloudComputerListText">
+        <item>适用于学校、用低成本打造高性价比的云化机房</item>
+        <item>适用于学校、用低成本打造高性价比的云化机房</item>
+    </string-array>
+</resources>

@@ -4,11 +4,13 @@
     >
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:id="@+id/ll_method_show_content">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="160dp">
@@ -78,15 +80,6 @@
                     android:layout_margin="20dp"
                     android:background="#110d0718"/>
             </RelativeLayout>
-            <com.andexert.expandablelayout.library.ExpandableLayoutListView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/ellv_method_show"
-                android:layout_margin="10dp"
-                android:divider="#ff4e4d4f"
-                android:dividerHeight="5dp">
-
-            </com.andexert.expandablelayout.library.ExpandableLayoutListView>
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

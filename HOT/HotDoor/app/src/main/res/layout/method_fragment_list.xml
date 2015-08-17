@@ -60,75 +60,82 @@
         android:layout_height="match_parent"
         android:layout_marginTop="2dp"
         android:background="#ffffff">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/tv_center"/>
         <com.hotdoor.regularHexagon.RegularHexagonView
             android:layout_width="100dp"
             android:layout_height="90dp"
+            android:src="@drawable/testimage"
             android:layout_centerInParent="true"
             android:id="@+id/rhv_security_informatization"
-            android:src="@drawable/testimage"
             android:scaleType="fitCenter"/>
         <com.hotdoor.regularHexagon.RegularHexagonView
             android:layout_width="100dp"
             android:layout_height="90dp"
-            android:id="@+id/rhv_rural_informatization"
+            android:src="@drawable/testimage"
             android:layout_above="@id/rhv_security_informatization"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/testimage"
-            android:scaleType="fitCenter"
-            android:layout_marginBottom="1dp"/>
+            android:id="@+id/rhv_rural_informatization"
+            android:layout_marginBottom="2dp"
+            android:scaleType="fitCenter"/>
         <com.hotdoor.regularHexagon.RegularHexagonView
+            android:layout_marginTop="2dp"
             android:layout_width="100dp"
             android:layout_height="90dp"
-            android:id="@+id/rhv_financial_informatization"
-            android:layout_centerHorizontal="true"
             android:layout_below="@id/rhv_security_informatization"
+            android:layout_centerHorizontal="true"
             android:src="@drawable/testimage"
-            android:scaleType="fitCenter"
-            android:layout_marginTop="1dp"/>
-        <com.hotdoor.regularHexagon.RegularHexagonView
-            android:layout_width="100dp"
-            android:layout_height="90dp"
-            android:id="@+id/rhv_move_working"
-            android:src="@drawable/testimage"
-            android:scaleType="fitCenter"
-            android:layout_marginTop="46dp"
-            android:layout_alignTop="@+id/rhv_rural_informatization"
-            android:layout_alignRight="@+id/rhv_security_informatization"
-            android:layout_alignEnd="@+id/rhv_security_informatization"
-            android:layout_marginRight="76dp"
-            android:layout_marginEnd="54dp"
-            android:layout_marginBottom="1dp" />
-        <com.hotdoor.regularHexagon.RegularHexagonView
+            android:id="@+id/rhv_financial_informatization"
+            android:scaleType="fitCenter"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@id/tv_center"
+            android:layout_marginRight="27dp"
+            >
+            <com.hotdoor.regularHexagon.RegularHexagonView
+                android:layout_width="100dp"
+                android:layout_height="90dp"
+                android:id="@+id/rhv_move_working"
+                android:layout_marginBottom="1dp"
+                android:src="@drawable/testimage"
+                android:scaleType="fitCenter"/>
 
-            android:layout_width="100dp"
-            android:layout_height="90dp"
-            android:id="@+id/rhv_hotel_informatization"
-            android:src="@drawable/testimage"
-            android:scaleType="fitCenter"
-            android:layout_below="@+id/rhv_move_working"
-            android:layout_alignLeft="@+id/rhv_move_working"
-            android:layout_alignStart="@+id/rhv_move_working" />
-        <com.hotdoor.regularHexagon.RegularHexagonView
-            android:layout_width="100dp"
-            android:layout_height="90dp"
-            android:id="@+id/rhv_library_cloud"
-            android:src="@drawable/testimage"
-            android:scaleType="fitCenter"
-            android:layout_above="@+id/rhv_hotel_informatization"
-            android:layout_toRightOf="@+id/rhv_hotel_informatization"
-            android:layout_toEndOf="@+id/rhv_hotel_informatization"
-            android:layout_marginLeft="52dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginBottom="1dp"/>
-        <com.hotdoor.regularHexagon.RegularHexagonView
-            android:layout_width="100dp"
-            android:layout_height="90dp"
-            android:id="@+id/rhv_industry_informatization"
-            android:src="@drawable/testimage"
-            android:scaleType="fitCenter"
-            android:layout_below="@+id/rhv_library_cloud"
-            android:layout_alignLeft="@+id/rhv_library_cloud"
-            android:layout_alignStart="@+id/rhv_library_cloud" />
+            <com.hotdoor.regularHexagon.RegularHexagonView
+                android:layout_marginTop="1dp"
+                android:layout_width="100dp"
+                android:layout_height="90dp"
+                android:id="@+id/rhv_hotel_informatization"
+                android:src="@drawable/testimage"
+                android:scaleType="fitCenter"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tv_center"
+            android:layout_marginLeft="27dp">
+            <com.hotdoor.regularHexagon.RegularHexagonView
+                android:layout_width="100dp"
+                android:layout_height="90dp"
+                android:id="@+id/rhv_library_cloud"
+                android:layout_marginBottom="1dp"
+                android:src="@drawable/testimage"
+                android:scaleType="fitCenter"/>
+            <com.hotdoor.regularHexagon.RegularHexagonView
+                android:layout_marginTop="1dp"
+                android:layout_width="100dp"
+                android:layout_height="90dp"
+                android:id="@+id/rhv_industry_informatization"
+                android:src="@drawable/testimage"
+                android:scaleType="fitCenter"/>
+        </LinearLayout>
     </RelativeLayout>
 
 </LinearLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:expandable="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.andexert.expandablelayout.library.ExpandableLayoutItem
+        android:id="@+id/eli_method_show_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        expandable:headerLayout="@layout/method_show_list_header"
+        expandable:contentLayout="@layout/method_show_list_content" />
+</RelativeLayout>

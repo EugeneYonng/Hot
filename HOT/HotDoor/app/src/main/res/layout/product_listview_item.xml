@@ -5,8 +5,8 @@
     android:background="@drawable/shape_product_listitem"
     android:padding="10dp">
     <ImageView
-        android:layout_width="170dp"
-        android:layout_height="100dp"
+        android:layout_width="140dp"
+        android:layout_height="70dp"
         android:layout_gravity="center"
         android:id="@+id/iv_product_list_icon"
         android:src="@drawable/testimage"
@@ -23,24 +23,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="教育型:"
-                android:textSize="20sp"
+                android:textSize="15sp"
                 android:layout_gravity="left"
                 android:id="@+id/stv_product_list_title1"/>
             <com.romainpiel.shimmer.ShimmerTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="GXY_EDU12"
-                android:textSize="20sp"
+                android:textSize="12sp"
                 android:layout_gravity="left"
-                android:layout_marginLeft="30dp"
                 android:id="@+id/stv_product_list_title2"/>
             <com.romainpiel.shimmer.ShimmerTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="更多信息"
-                android:textSize="20sp"
-                android:layout_gravity="left"
-                android:layout_marginLeft="60dp"/>
+                android:textSize="13sp"
+                android:layout_gravity="right"
+                android:layout_marginRight="20dp"/>
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

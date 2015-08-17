@@ -1,0 +1,57 @@
+<resources>
+    <string-array name="smartCampusTitle">
+        <item>标题测试</item>
+        <item>标题测试</item>
+        <item>标题测试</item>
+    </string-array>
+    <string-array name="smartCampusTxet">
+        <item>Far far away\n, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar</item>
+        <item>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.\\n\\nCras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate eleifend sapien.</item>
+        <item>*</item>
+    </string-array>
+
+    <string-array name="smartCampusList">
+        <item>智慧校园</item>
+        <item>智慧校园针对学校的实际情况，对学校进行信息化改造。</item>
+    </string-array>
+
+    <string-array name="smartCompanyList">
+        <item>智慧企业</item>
+        <item>智慧企业针对学校的实际情况，对学校进行信息化改造。</item>
+    </string-array>
+    
+    <string-array name="securityInformatizationList">
+        <item>信息安全</item>
+        <item>智慧企业针对学校的实际情况，对学校进行信息化改造。</item>
+    </string-array>
+
+    <string-array name="moveWorkingList">
+        <item>移动办公</item>
+        <item>智慧企业针对学校的实际情况，对学校进行信息化改造。</item>
+    </string-array>
+
+    <string-array name="libraryCloudList">
+        <item>云图书馆</item>
+        <item>智慧企业针对学校的实际情况，对学校进行信息化改造。</item>
+    </string-array>
+
+    <string-array name="hotelInformatizationList" >
+        <item>酒店信息化</item>
+        <item>智慧企业针对学校的实际情况，对学校进行信息化改造。</item>
+    </string-array>
+
+    <string-array name="industryInformatizationList">
+        <item>工业信息化</item>
+        <item>智慧企业针对学校的实际情况，对学校进行全面信息化改造。</item>
+    </string-array>
+
+    <string-array name="financialInformatizationList">
+        <item>金融信息化</item>
+        <item>智慧企业针对学校的实际情况，对学校进行信息化改造。</item>
+    </string-array>
+
+    <string-array name="ruralInformatizationList"  >
+        <item>农村信息化</item>
+        <item>智慧企业针对学校的实际情况，对学校进行信息化改造。</item>
+    </string-array>
+</resources>
