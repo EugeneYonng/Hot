@@ -7,11 +7,12 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
+import com.baoyz.widget.PullRefreshLayout;
 import com.hotdoor.adapter.PersonalSellItemAdapter;
 import com.hotdoor.products.main.PersonalActivity;
 import com.hotdoor.products.main.R;
-import com.markupartist.android.widget.PullToRefreshListView;
 import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
 
@@ -28,9 +29,12 @@ public class AdministratorFragment extends Fragment implements View.OnClickListe
     ShimmerTextView mTabSubmitHistory;
     ViewPager mViewPager;
 
-    private static PullToRefreshListView mListCheck;
+    private static PullRefreshLayout mRefreshLayoutCheck;
+    private static PullRefreshLayout mRefreshLayoutHistory;
 
-    private static PullToRefreshListView mListHistory;
+    private static ListView mListCheck;
+
+    private static ListView mListHistory;
     PersonalSellItemAdapter mAdapter;
     String[] mHistoryItem;
 
@@ -117,7 +121,8 @@ public class AdministratorFragment extends Fragment implements View.OnClickListe
     }
 
     private void initDataCheckSubmit(View view) {
-        mListCheck = (PullToRefreshListView) view.findViewById(R.id.lv_personal_sell_check);
+        mRefreshLayoutCheck = (PullRefreshLayout) view.findViewById(R.id.refresh_layout_personal_sell_check);
+        mListCheck = (ListView) view.findViewById(R.id.lv_personal_sell_check);
 
         /**
          * 接口。得到mHistoryItem的具体项目
@@ -125,10 +130,20 @@ public class AdministratorFragment extends Fragment implements View.OnClickListe
         mHistoryItem = CHECK_PRO;
         mAdapter = new PersonalSellItemAdapter(getActivity(), mHistoryItem);
         mListCheck.setAdapter(mAdapter);
+
+        mRefreshLayoutCheck.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                /**
+                 * 接口。更新数据
+                 */
+                mRefreshLayoutCheck.setRefreshing(false);
+            }
+        });
     }
 
     private void initDataHistorySubmit(View view) {
-        mListHistory = (PullToRefreshListView) view.findViewById(R.id.lv_personal_sell_history);
+        mListHistory = (ListView) view.findViewById(R.id.lv_personal_sell_history);
         /**
          * 接口。得到mHistoryItem的具体项目
          */

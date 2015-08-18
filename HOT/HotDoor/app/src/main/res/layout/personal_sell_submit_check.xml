@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.baoyz.widget.PullRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/refresh_layout_personal_sell_check"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-    <com.markupartist.android.widget.PullToRefreshListView
+    app:type="water_drop"
+    android:orientation="vertical">
+    <ListView
         android:id="@+id/lv_personal_sell_check"
         android:layout_width="240dp"
         android:layout_height="match_parent"
@@ -11,4 +14,4 @@
         android:layout_gravity="center"
         android:divider="#000000"
         android:dividerHeight="1.5dp" />
-</LinearLayout>
+</com.baoyz.widget.PullRefreshLayout>
