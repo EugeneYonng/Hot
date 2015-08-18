@@ -74,17 +74,6 @@ public class PersonalActivity extends Activity implements View.OnClickListener {
     private void popBackFragment() {
         if (getFragmentManager().findFragmentByTag("submitedFragment") != null) {
             getFragmentManager().popBackStack();
-        } else if (getFragmentManager().findFragmentByTag("collectFragment") != null) {
-            getFragmentManager().popBackStack();
-        } else if (getFragmentManager().findFragmentByTag("sellFragment") != null) {
-            getFragmentManager().popBackStack();
-        } else if (getFragmentManager().findFragmentByTag("registerEnterFragment") != null) {
-            Intent intent = new Intent(MainActivity.ACTION_MAINACTIVITY);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            this.startActivity(intent);
-            this.finish();
-        } else if (getFragmentManager().findFragmentByTag("registerFragment") != null) {
-            getFragmentManager().popBackStack();
         } else {
             Intent intent = new Intent(MainActivity.ACTION_MAINACTIVITY);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

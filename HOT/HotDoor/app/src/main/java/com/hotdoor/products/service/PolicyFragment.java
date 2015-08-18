@@ -2,12 +2,14 @@ package com.hotdoor.products.service;
 
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 
+import com.andexert.expandablelayout.library.ExpandableLayoutItem;
 import com.andexert.expandablelayout.library.ExpandableLayoutListView;
 import com.hotdoor.adapter.ServiceAdapter;
 import com.hotdoor.products.main.R;
@@ -44,11 +46,13 @@ public class PolicyFragment extends Fragment implements ExpandableLayoutListView
         mPolicyContent.setAdapter(mAdapter);
 
         mPolicyContent.setOnItemClickListener(this);
+
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+        ExpandableLayoutItem ss = (ExpandableLayoutItem) view.findViewById(R.id.expandableLayout);
+        Log.i("isOpened", "" + ss.isOpened());
         if (mLastView == null) {//第一次点击
             ImageView mImage = (ImageView) view.findViewById(R.id.iv_service_show_list_header);
             mImage.setImageResource(R.drawable.ic_expand_less_black_18dp);
@@ -71,4 +75,5 @@ public class PolicyFragment extends Fragment implements ExpandableLayoutListView
             isSelected = true;
         }
     }
+
 }
