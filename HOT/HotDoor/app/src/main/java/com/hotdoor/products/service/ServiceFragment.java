@@ -50,14 +50,16 @@ public class ServiceFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ll_service_policy:
-                PolicyFragment policyFragment = new PolicyFragment();
-                mActivity.changeFragment(this, policyFragment, "policyFragment", 1, true, true);
+                mActivity.changeFragment(this, new PolicyFragment(), "policyFragment", 1, true, true);
                 break;
             case R.id.ll_service_sell:
+                mActivity.changeFragment(this, new AfterSellFragment(), "afterSellFragment", 1, true, true);
                 break;
             case R.id.ll_fault_diagnosis:
+                mActivity.changeFragment(this, new FaultDiagnosisFragment(), "faultDiagnosisFragment", 1, true, true);
                 break;
             case R.id.ll_online_support:
+                mActivity.changeFragment(this, new OnlineSupportFragment(), "onlineSupportFragment", 1, true, true);
                 break;
             default:
                 break;

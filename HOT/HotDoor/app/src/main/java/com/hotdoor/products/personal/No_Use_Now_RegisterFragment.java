@@ -14,7 +14,7 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 /**
  * Created by Yip on 2015/8/13.
  */
-public class RegisterFragment extends Fragment implements View.OnClickListener {
+public class No_Use_Now_RegisterFragment extends Fragment implements View.OnClickListener {
 
     MaterialEditText mUsername;
     MaterialEditText mRealName;
@@ -25,11 +25,11 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
 
     PersonalActivity mActivity;
 
-    PersonalFragment personalFragment;
+    No_Use_Now_PersonalFragment personalFragment;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.personal_fragment_register, container, false);
+        View view = inflater.inflate(R.layout.a_no_use_now_personal_fragment_register, container, false);
         init(view);
         return view;
     }
@@ -65,7 +65,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        personalFragment = new PersonalFragment();
+        personalFragment = new No_Use_Now_PersonalFragment();
 
         mActivity.changeFragment(this, personalFragment, "registerEnterFragment", 1, false, true);
     }

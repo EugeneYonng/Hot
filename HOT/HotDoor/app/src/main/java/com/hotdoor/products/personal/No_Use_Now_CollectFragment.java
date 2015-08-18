@@ -3,7 +3,6 @@ package com.hotdoor.products.personal;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.SharedPreferences;
-import android.mtp.MtpDevice;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -32,7 +31,7 @@ import java.util.ArrayList;
 /**
  * Created by Yip on 2015/8/10.
  */
-public class CollectFragment extends Fragment implements View.OnClickListener {
+public class No_Use_Now_CollectFragment extends Fragment implements View.OnClickListener {
 
     private static final int DELETEPRODUCT = 0;
     private static final int DELETEMETHOD = 1;
@@ -63,7 +62,7 @@ public class CollectFragment extends Fragment implements View.OnClickListener {
 
     PersonalActivity mActivity;
 
-    public CollectFragment() {
+    public No_Use_Now_CollectFragment() {
         prodListTitle = new ArrayList<String>();
         prodListText = new ArrayList<String>();
         prodListResource = new ArrayList<Integer>();
@@ -76,7 +75,7 @@ public class CollectFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         new ReadXMLThread().start();
-        View view = inflater.inflate(R.layout.personal_fragment_collect, container, false);
+        View view = inflater.inflate(R.layout.a_no_use_now_personal_fragment_collect, container, false);
         init(view);
 
         setPagerAdapter(mViewPagerCollect);

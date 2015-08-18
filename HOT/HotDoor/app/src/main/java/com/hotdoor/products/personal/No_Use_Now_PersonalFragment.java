@@ -15,7 +15,7 @@ import com.hotdoor.products.main.R;
 /**
  * Created by Yip on 2015/8/10.
  */
-public class PersonalFragment extends Fragment implements View.OnClickListener {
+public class No_Use_Now_PersonalFragment extends Fragment implements View.OnClickListener {
 
     ImageView mImgPersonalIcon;
     TextView mTextPersonalName;
@@ -23,14 +23,14 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
     ButtonRectangle mBtnCollect;
     ButtonRectangle mBtnSell;
 
-    CollectFragment collectFragment;
-    SellFragment sellFragment;
+    No_Use_Now_CollectFragment noUseNowCollectFragment;
+    No_Use_Now_SellFragment sellFragment;
 
     PersonalActivity mActivity;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.personal_fragment_personal, container, false);
+        View view = inflater.inflate(R.layout.a_no_use_now_personal_fragment_personal, container, false);
         init(view);
         return view;
     }
@@ -65,11 +65,11 @@ public class PersonalFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_personal_personal_collect:
-                collectFragment = new CollectFragment();
-                mActivity.changeFragment(this, collectFragment, "collectFragment", 1, true, false);
+                noUseNowCollectFragment = new No_Use_Now_CollectFragment();
+                mActivity.changeFragment(this, noUseNowCollectFragment, "noUseNowCollectFragment", 1, true, false);
                 break;
             case R.id.btn_personal_personal_sell:
-                sellFragment = new SellFragment();
+                sellFragment = new No_Use_Now_SellFragment();
                 mActivity.changeFragment(this, sellFragment, "sellFragment", 1, true, false);
                 break;
             default:
