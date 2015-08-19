@@ -16,9 +16,10 @@ import com.hotdoor.adapter.ServiceAdapter;
 import com.hotdoor.products.main.R;
 
 /**
- * Created by Yip on 2015/8/16.
+ * Created by Yip on 2015/8/18.
  */
-public class PolicyFragment extends Fragment implements ListView.OnItemClickListener {
+public class AfterSellFragment extends Fragment implements ListView.OnItemClickListener {
+
     private static final String[] HEADER = {"保修条例", "权责声明", "售后服务", "维修收费"};
     private static final String[] CONTENT = {"content1", "content2", "content3", "content4"};
 
@@ -35,7 +36,7 @@ public class PolicyFragment extends Fragment implements ListView.OnItemClickList
         View view = inflater.inflate(R.layout.service_fragment_policy, container, false);
 
         init(view);
-        
+
         return view;
     }
 
@@ -76,5 +77,4 @@ public class PolicyFragment extends Fragment implements ListView.OnItemClickList
             isSelected = true;
         }
     }
-
 }

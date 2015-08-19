@@ -20,7 +20,7 @@ import com.romainpiel.shimmer.ShimmerTextView;
 /**
  * Created by Yip on 2015/8/10.
  */
-public class SellFragment extends Fragment implements View.OnClickListener {
+public class No_Use_Now_SellFragment extends Fragment implements View.OnClickListener {
     private final static String[] HISTORY_PRO = {"项目1", "项目2", "项目3", "项目4", "项目5"};
 
     private static final int[] PAGER_ENTITY = new int[] {R.layout.personal_sell_submit_new, R.layout.personal_sell_submit_history};
@@ -133,7 +133,7 @@ public class SellFragment extends Fragment implements View.OnClickListener {
         mProMessage.setTypeface(mActivity.mFonts);
         mBtnSubmit.setTypeface(mActivity.mFonts);
 
-        mBtnSubmit.setOnClickListener(SellFragment.this);
+        mBtnSubmit.setOnClickListener(No_Use_Now_SellFragment.this);
 
     }
 

@@ -36,6 +36,7 @@ public class AdministratorFragment extends Fragment implements View.OnClickListe
 
     private static ListView mListHistory;
     PersonalSellItemAdapter mAdapter;
+    String[] mCheckItem;
     String[] mHistoryItem;
 
     private Shimmer mShimmer;
@@ -125,31 +126,65 @@ public class AdministratorFragment extends Fragment implements View.OnClickListe
         mListCheck = (ListView) view.findViewById(R.id.lv_personal_sell_check);
 
         /**
-         * 接口。得到mHistoryItem的具体项目
+         * 接口方法：getDetailDisplayData();
+         * 接口。关于检查报备：得到mCheckItem的具体项目
+         * 对mListCheck的item，需要对其有审批的操作并返回结果给后台
+         * 对mListCheck的item的审批过程接口可以写在Adapter中
+         * 由于目前历史报备、检查报备的列表都是相同的adapter（PersonalSellItemAdapter），因此需要新建adapter。
          */
-        mHistoryItem = CHECK_PRO;
-        mAdapter = new PersonalSellItemAdapter(getActivity(), mHistoryItem);
+        mCheckItem = getCheckDetailDisplayData();
+//        mCheckItem = CHECK_PRO;
+        mAdapter = new PersonalSellItemAdapter(getActivity(), mCheckItem);
         mListCheck.setAdapter(mAdapter);
 
         mRefreshLayoutCheck.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 /**
-                 * 接口。更新数据
+                 * 接口。关于检查报备：更新数据
                  */
                 mRefreshLayoutCheck.setRefreshing(false);
             }
         });
     }
 
+    /**
+     * 接口方法
+     * @return
+     */
+    private String[] getCheckDetailDisplayData() {
+        return null;
+    }
+
     private void initDataHistorySubmit(View view) {
+        mRefreshLayoutHistory = (PullRefreshLayout) view.findViewById(R.id.refresh_layout_personal_sell_history);
         mListHistory = (ListView) view.findViewById(R.id.lv_personal_sell_history);
         /**
-         * 接口。得到mHistoryItem的具体项目
+         * 接口方法：getHistoryDetailDisplayData();
+         * 接口。关于管理员的历史报备，得到mHistoryItem的具体项目
          */
-        mHistoryItem = HISTORY_PRO;
+        mHistoryItem = getHistoryDetailDisplayData();
+//        mHistoryItem = HISTORY_PRO;
         mAdapter = new PersonalSellItemAdapter(getActivity(), mHistoryItem);
         mListHistory.setAdapter(mAdapter);
+
+        mRefreshLayoutHistory.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                /**
+                 * 接口。关于历史报备：更新数据
+                 */
+                mRefreshLayoutHistory.setRefreshing(false);
+            }
+        });
+    }
+
+    /**
+     * 接口方法
+     * @return
+     */
+    private String[] getHistoryDetailDisplayData() {
+        return null;
     }
 
     private void setShimmerNew() {
@@ -206,12 +241,8 @@ public class AdministratorFragment extends Fragment implements View.OnClickListe
                 mViewPager.setCurrentItem(1);
                 setShimmerHistory();
                 break;
-            case R.id.btn_personal_sell_submit_confirm:
-                /**
-                 * 接口。加入如何存储数据的过程
-                 */
-                submitedFragment = new SubmitedFragment();
-                mActivity.changeFragment(this, submitedFragment, "submitedFragment", 1, true, true);
+            default:
+                break;
         }
     }
 }

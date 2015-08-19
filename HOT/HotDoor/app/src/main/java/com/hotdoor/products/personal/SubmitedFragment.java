@@ -52,7 +52,8 @@ public class SubmitedFragment extends Fragment {
         setFonts();
 
         /**
-         * 接口。得到显示的内容
+         * 接口方法：getTextDisplay();
+         * 接口。得到显示的具体内容
          */
         getTextDisplay();
 
@@ -69,7 +70,12 @@ public class SubmitedFragment extends Fragment {
         mTextMessage.setTypeface(mActivity.mFonts);
     }
 
+    /**
+     * 接口方法
+     * @return
+     */
     private void getTextDisplay() {
+
     }
 
 }

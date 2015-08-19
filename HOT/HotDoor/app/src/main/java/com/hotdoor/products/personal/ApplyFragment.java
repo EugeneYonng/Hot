@@ -140,11 +140,23 @@ public class ApplyFragment extends Fragment implements View.OnClickListener {
     private void initDataHistorySubmit(View view) {
         mListHistory = (ListView) view.findViewById(R.id.lv_personal_sell_history);
         /**
+         * 接口方法：getDetailDisplayData();
          * 接口。得到mHistoryItem的具体项目
+         * 点击具体条目可以跳转到submitedFragment中看到具体的情况，该方法可以在adapter中进行书写
          */
-        mHistoryItem = HISTORY_PRO;
+        mHistoryItem = getDetailDisplayData();
+//        mHistoryItem = HISTORY_PRO;
         mAdapter = new PersonalSellItemAdapter(getActivity(), mHistoryItem);
         mListHistory.setAdapter(mAdapter);
+    }
+
+    /**
+     * 接口方法
+     * @return
+     */
+    private String[] getDetailDisplayData() {
+
+        return null;
     }
 
     private void setShimmerNew() {
@@ -203,10 +215,24 @@ public class ApplyFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.btn_personal_sell_submit_confirm:
                 /**
+                 * 接口方法：submitData();
                  * 接口。加入如何存储数据的过程
+                 * 并将数据传入后台服务器。
                  */
+                submitData();
+
                 submitedFragment = new SubmitedFragment();
                 mActivity.changeFragment(this, submitedFragment, "submitedFragment", 1, true, true);
         }
     }
+
+    /**
+     * 接口方法
+     * @return
+     */
+    private void submitData() {
+
+    }
+
+
 }
